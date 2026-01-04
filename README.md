@@ -32,6 +32,11 @@ This is **not a finished product**, but an evolving one — reflecting continuou
 
 ## Lesson 01: Variables in JavaScript
 
+ **Source File:**  
+[`01_basics/01_variables.js`](./01_basics/01_variables.js)
+
+---
+
 ### Environment Setup
 To begin working with JavaScript locally, **Node.js** was installed. This allows JavaScript code to be executed outside the browser and sets up the foundation for all upcoming lessons in this repository.
 
@@ -61,8 +66,56 @@ Concepts covered include:
 
 ---
 
+## Lesson 02: Data Types in JavaScript
 
+ **Source File:**  
+[`01_basics/02_datatypes.js`](./01_basics/02_datatypes.js)
 
+---
+
+### What This Lesson Covers
+
+This lesson revisits **JavaScript data types** and emphasizes writing clear, readable, and standards-compliant code.
+
+The `use strict` directive is introduced to ensure that JavaScript is executed in **strict mode**, helping catch common mistakes and encouraging better coding practices.
+
+---
+
+### Concepts Explored
+
+- Enabling strict mode using `"use strict"`
+- Differences between browser and Node.js environments
+- Primitive data types in JavaScript
+- Special values like `null` and `undefined`
+- Using `typeof` to inspect data types
+- Importance of code readability
+
+---
+
+### Data Types Overview
+
+JavaScript supports the following core data types:
+
+- **number** – numeric values  
+- **bigint** – large integers  
+- **string** – textual data (`""`)  
+- **boolean** – `true` or `false`  
+- **null** – standalone value representing intentional absence  
+- **undefined** – variable declared but not assigned  
+- **symbol** – unique and immutable identifiers  
+- **object** – collections of key–value pairs  
+
+---
+
+### Key Observations
+
+- `"use strict"` enforces modern JavaScript behavior.
+- `alert()` works in browsers but not in Node.js.
+- `typeof null` returns `"object"`, which is a long-standing JavaScript quirk.
+- `typeof undefined` returns `"undefined"` as expected.
+- Writing readable and well-structured code is essential for maintainability.
+
+---
 
 
 
