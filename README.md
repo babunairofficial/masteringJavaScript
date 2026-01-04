@@ -33,7 +33,7 @@ This is **not a finished product**, but an evolving one — reflecting continuou
 ## Lesson 01: Variables in JavaScript
 
  **Source File:**  
-[`01basics/01_variables.js`](./01_basics/01_variables.js)
+[`01basics/01_variables.js`](./01basics/01_variables.js)
 
 ---
 
@@ -69,7 +69,7 @@ Concepts covered include:
 ## Lesson 02: Data Types in JavaScript
 
  **Source File:**  
-[`01basics/02_datatypes.js`](./01_basics/02_datatypes.js)
+[`01basics/02_dataTypes.js`](./01basics/02_dataTypes.js)
 
 ---
 
@@ -117,6 +117,74 @@ JavaScript supports the following core data types:
 
 ---
 
+## Lesson 03: Data Type Conversion (Type Casting)
+
+ **Source File:**  
+[`01basics/03_conversionOperation.js`](./01basics/03_conversionOperation.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson revisits **data type conversion in JavaScript**, focusing on how values are explicitly converted between types and how JavaScript behaves in edge cases.
+
+Understanding type conversion is critical to avoiding bugs and writing predictable JavaScript code.
+
+---
+
+### Concepts Explored
+
+- Converting values to `Number`
+- Handling invalid numeric conversions
+- Converting values to `Boolean`
+- Converting numbers to `String`
+- Using `typeof` to verify conversions
+- Understanding `NaN` and its behavior
+
+---
+
+### Number Conversion
+
+JavaScript provides the `Number()` function to convert values into numbers.
+
+Key observations:
+
+- `"45"` → `45`
+- `"45ab"` → `NaN`
+- `null` → `0`
+- `true` → `1`, `false` → `0`
+
+Even when conversion fails, the result is still of type `number` (`NaN`).
+
+---
+
+### Boolean Conversion
+
+Using `Boolean()` to convert values:
+
+- `1` → `true`, `0` → `false`
+- `""` (empty string) → `false`
+- Non-empty strings (e.g. `"superman"`) → `true`
+
+---
+
+### String Conversion
+
+Values can be converted to strings using `String()`:
+
+- `35` → `"35"`
+- Resulting type is `string`
+
+---
+
+### Key Takeaways
+
+- JavaScript allows explicit type conversion, but results may not always be intuitive.
+- `NaN` represents an invalid number but still has the `number` type.
+- Always validate and verify conversions when working with user input or external data.
+- Using `typeof` helps confirm expected data types after conversion.
+
+---
 
 
 
