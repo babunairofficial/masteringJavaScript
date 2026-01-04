@@ -33,7 +33,7 @@ This is **not a finished product**, but an evolving one — reflecting continuou
 ## Lesson 01: Variables in JavaScript
 
  **Source File:**  
-[`01_basics/01_variables.js`](./01_basics/01_variables.js)
+[`01basics/01_variables.js`](./01_basics/01_variables.js)
 
 ---
 
@@ -69,7 +69,7 @@ Concepts covered include:
 ## Lesson 02: Data Types in JavaScript
 
  **Source File:**  
-[`01_basics/02_datatypes.js`](./01_basics/02_datatypes.js)
+[`01basics/02_datatypes.js`](./01_basics/02_datatypes.js)
 
 ---
 
