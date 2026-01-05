@@ -265,6 +265,88 @@ Example use case:
 
 ---
 
+## Lesson 04: Data Type Comparison
+
+  Source File:  
+[`01basics/04_comparison.js`](./01basics/04_comparison.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson revisits comparison operators in JavaScript and explains how comparisons behave when different data types are involved.
+
+It focuses on common pitfalls and unintuitive results caused by JavaScript’s implicit type coercion rules.
+
+---
+
+### Basic Comparisons
+
+JavaScript provides standard comparison operators such as:
+
+- `>` greater than  
+- `>=` greater than or equal to  
+- `<` less than  
+- `==` loose equality  
+- `!=` loose inequality  
+
+These operators behave predictably when comparing values of the same data type.
+
+---
+
+### Comparisons with Type Coercion
+
+When different data types are compared, JavaScript may automatically convert values:
+
+- `"2" > 1` evaluates to `true`
+- `"02" > 1` evaluates to `true`
+
+In relational comparisons, string values are converted to numbers before evaluation.
+
+---
+
+### `null` Comparison Pitfalls
+
+Comparisons involving `null` can lead to confusing results:
+
+- `null > 0` → `false`
+- `null == 0` → `false`
+- `null >= 0` → `true`
+
+This happens because `null` is handled differently in equality checks and relational comparisons, sometimes converting to `0` and sometimes behaving like `NaN`.
+
+---
+
+### `undefined` in Comparisons
+
+Comparisons involving `undefined` consistently return false:
+
+- `undefined == 0` → `false`
+- `undefined > 0` → `false`
+- `undefined < 0` → `false`
+- `undefined >= 0` → `false`
+
+`undefined` does not convert into a meaningful numeric value during comparisons.
+
+---
+
+### Strict Equality (`===`)
+
+- `"2" === 2` → `false`
+
+Strict equality checks both value and data type, making it safer and more predictable than loose equality.
+
+---
+
+### Key Takeaways
+
+- Prefer strict equality (`===`) over loose equality (`==`).
+- Avoid comparisons involving `null` and `undefined` when possible.
+- Be explicit in comparisons to prevent unexpected behavior.
+- Clean and readable code is more reliable than relying on implicit coercion.
+
+---
+
 
 
 
