@@ -1,3 +1,4 @@
+/* 
 let score = "45";
 
 console.log(typeof score);
@@ -62,3 +63,43 @@ let someNumber = 35;
 let stringNumber = String(someNumber);
 console.log(stringNumber);
 console.log(typeof stringNumber);
+*/
+
+
+// *********************************** Operations ************************************
+
+let value = 3;
+let negValue = - value;
+console.log(negValue);
+
+console.log();
+
+let str1 = "hello";
+let str2 = "batman";
+
+let str3 = str1 + str2;
+console.log(str3);
+
+console.log("1" + 2); // 12
+console.log(1 + "2"); // 12
+console.log("1" + 2 + 2); // 122
+console.log(1 + 2 + "2"); // 32
+
+console.log((3 + 4) * (5 % 3)); // 14
+
+console.log(true); // true
+console.log(+true); // 1 => conversion. this approach practically not used
+
+console.log(""); // empty line
+console.log(+""); // 0 =>again not used 
+
+let num1, num2, num3;
+num1 = num2 = num3 = 2 + 2;
+
+let gameCounter = 100;
+++gameCounter; //prefix increment
+console.log(gameCounter);
+
+//reading materials:
+// https://tc39.es/ecma262/#sec-type-conversion
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment

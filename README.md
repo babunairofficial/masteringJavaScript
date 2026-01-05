@@ -186,6 +186,86 @@ Values can be converted to strings using `String()`:
 
 ---
 
+## Lesson 03 (Continued): Operations & Type Coercion
+
+ **Source File:**  
+[`01basics/03_conversionOperation.js`](./01basics/03_conversionOperation.js)
+
+---
+
+### What This Section Covers
+
+This section builds on data type conversion by exploring **JavaScript operations and implicit type coercion**. It highlights how JavaScript evaluates expressions based on operand order and operator behavior.
+
+---
+
+### Unary & Arithmetic Operations
+
+- Unary minus (`-`) converts a value into its negative form.
+- Arithmetic expressions follow standard operator precedence.
+- Parentheses can be used to explicitly control evaluation order.
+
+Example concepts demonstrated:
+- Negating numeric values
+- Combining arithmetic operators
+- Using modulo (`%`) in expressions
+
+---
+
+### String Concatenation & Coercion
+
+JavaScript automatically converts values during operations involving strings.
+
+Key observations:
+
+- `"1" + 2` → `"12"`
+- `1 + "2"` → `"12"`
+- `"1" + 2 + 2` → `"122"`
+- `1 + 2 + "2"` → `"32"`
+
+ **Rule of thumb:**  
+When a string is involved, the `+` operator prioritizes **string concatenation**, evaluated from left to right.
+
+---
+
+### Implicit Type Conversion (Unary Plus)
+
+- `+true` → `1`
+- `+""` → `0`
+
+While valid, this style of conversion is **rarely used in production code** due to readability concerns.
+
+---
+
+### Increment Operators
+
+- Prefix increment (`++variable`) increases the value **before** usage.
+- This lesson demonstrates prefix incrementation for counters.
+
+Example use case:
+- Tracking state changes or counters in logic flows.
+
+---
+
+### Key Takeaways
+
+- JavaScript performs implicit type coercion during operations.
+- Expression order significantly affects results.
+- Readability should be prioritized over clever shortcuts.
+- Understanding coercion helps prevent subtle bugs in real-world code.
+
+---
+
+### References
+
+- ECMAScript Specification – Type Conversion  
+  https://tc39.es/ecma262/#sec-type-conversion
+- MDN – Increment Operator  
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment
+
+---
+
+
 
 
 ## License
