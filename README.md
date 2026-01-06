@@ -347,6 +347,79 @@ Strict equality checks both value and data type, making it safer and more predic
 
 ---
 
+## Lesson 05: Data Type Summary
+
+Source File:  
+[`01basics/datatypes-summary.js`](./01basics/datatypes-summary.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson provides a high-level **summary of JavaScript data types**. Detailed exploration of each individual data type will be covered in later lectures. The focus here is to clearly understand the difference between primitive and non-primitive types and how to inspect them using `typeof`.
+
+---
+
+### Primitive Data Types
+
+JavaScript has **7 primitive data types**:
+
+- String  
+- Number  
+- Boolean  
+- Null  
+- Undefined  
+- Symbol  
+- BigInt  
+
+Primitive values are immutable and are stored directly in memory. This lesson demonstrates practical examples of all primitive types, including:
+
+- Numeric values (both integers and decimals)  
+- Boolean flags  
+- `null` as a standalone value  
+- Variables declared without assignment resulting in `undefined`  
+- `Symbol` for uniqueness  
+- `BigInt` for very large integers  
+
+An important observation from the code is that two Symbols created with the same description are still different values, and strict comparison between them returns false.
+
+---
+
+### Non-Primitive (Reference) Types
+
+Reference types in JavaScript include:
+
+- Arrays  
+- Objects  
+- Functions  
+
+These are stored by reference rather than by value. The lesson illustrates simple examples of each:
+
+- An array containing multiple string elements  
+- An object with named properties  
+- A function expression assigned to a variable  
+
+Understanding this distinction is essential before moving on to topics like memory behavior, copying objects, and advanced JavaScript internals.
+
+---
+
+### Inspecting Data Types
+
+The `typeof` operator is used throughout this lesson to determine the type of different variables. Viewing the results in a structured table format helps compare how JavaScript classifies primitive and reference values.
+
+---
+
+### Key Takeaways
+
+- Clear separation between primitive and non-primitive data types  
+- Symbols provide uniqueness even with identical descriptions  
+- BigInt is represented using the `n` suffix  
+- Arrays, objects, and functions are all reference types  
+- `typeof` is the standard way to inspect variable types  
+- Using `console.table` improves readability of output
+
+---
+
 
 
 
