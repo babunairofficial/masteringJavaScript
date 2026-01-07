@@ -46,3 +46,27 @@ console.table([
   typeof myFunction
 ]);
 
+
+
+/* -------------- Memory ----------------*/
+
+// Stack (Primitive), Heap (Non-Primitive)
+
+let mySuperheroName = "I am Batman";
+
+let anotherName = mySuperheroName;
+anotherName = "Dark-Knight";
+
+console.log(anotherName);
+console.log(mySuperheroName);
+
+let userOne = {
+  email: "batman@gothamcity.com",
+  upi: "Suser@ybl"
+}
+
+let userTwo = userOne;
+userTwo.email = "brucewayne@wayneenterises.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);

@@ -420,6 +420,65 @@ The `typeof` operator is used throughout this lesson to determine the type of di
 
 ---
 
+## Lesson 05 (Continued): Memory Behavior in JavaScript
+
+Source File:  
+[`01basics/datatypes-summary.js`](./01basics/datatypes-summary.js)
+
+---
+
+### What This Lesson Covers
+
+This section continues the previous Data Type Summary lesson by focusing on **how JavaScript manages memory** for different kinds of values.
+
+The concept of memory storage is divided into:
+
+- **Stack Memory** – used for primitive data types  
+- **Heap Memory** – used for non-primitive (reference) types  
+
+Understanding this distinction explains why some variables behave independently while others reflect shared changes.
+
+---
+
+### Stack Memory with Primitive Types
+
+Primitive values are stored directly in the stack.  
+When one variable is assigned to another, JavaScript creates a **copy of the value**, not a reference.
+
+Key observations from the code:
+
+- Assigning a string variable to a new variable copies the original value.
+- Reassigning the new variable does not affect the original variable.
+- Each primitive variable maintains its own separate data in memory.
+
+This demonstrates that primitives are passed and assigned **by value**.
+
+---
+
+### Heap Memory with Reference Types
+
+Objects and other reference types are stored in the heap.  
+When an object variable is assigned to another variable, both variables point to the **same memory location**.
+
+Important outcomes shown:
+
+- `userTwo = userOne` does not create a copy of the object.
+- Modifying a property through one variable changes the object itself.
+- Both variables reflect the updated value because they share the same reference.
+
+This confirms that objects are handled **by reference**.
+
+---
+
+### Key Takeaways
+
+- Primitives use stack memory and are assigned by value.
+- Reference types use heap memory and are assigned by reference.
+- Copying primitives results in independent variables.
+- Copying objects results in shared data unless explicitly cloned.
+- Understanding stack and heap is essential for writing predictable JavaScript code.
+
+---
 
 
 
