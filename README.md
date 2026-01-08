@@ -480,6 +480,79 @@ This confirms that objects are handled **by reference**.
 
 ---
 
+## Lesson 06: Strings in JavaScript
+
+Source File:  
+[`01basics/05_strings.js`](./01basics/05_strings.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson focuses on **strings in JavaScript** and introduces commonly used string operations and methods.  
+It also emphasizes the importance of referring to **MDN documentation** to understand available methods, their behavior, and edge cases.
+
+---
+
+### String Creation and Interpolation
+
+JavaScript supports both traditional string declarations and template literals.
+
+Key points covered:
+
+- Using template literals with backticks (`` ` ``) for readable string interpolation
+- Embedding variables directly inside strings using `${}`
+
+Template literals improve readability and are preferred in modern JavaScript.
+
+---
+
+### String Objects and Properties
+
+Strings can also be created using the `String` object.
+
+Concepts demonstrated:
+
+- Accessing characters using index notation
+- Inspecting the string prototype
+- Checking string length
+- Converting strings to uppercase
+- Finding characters and their positions
+
+These examples highlight that strings, while primitive, behave like objects when accessing methods.
+
+---
+
+### Substring and Slice Methods
+
+Two commonly used methods for extracting parts of strings are revisited:
+
+- `substring(start, end)`
+- `slice(start, end)`
+
+Important differences noted:
+
+- `substring` does not accept negative indices
+- `slice` supports negative values, allowing more flexible slicing
+
+---
+
+### Trimming Whitespace
+
+- `trim()` removes leading and trailing whitespace
+- Useful when working with user input or formatted strings
+
+---
+
+### URL and String Utilities
+
+Additional practical string methods explored:
+
+- `replace()` for modifying parts of a string
+- `includes()` to check substri
+
+---
+
 
 
 ## License
