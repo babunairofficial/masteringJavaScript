@@ -553,6 +553,84 @@ Additional practical string methods explored:
 
 ---
 
+## Lesson 07: Numbers and Math in JavaScript
+
+Source File:  
+[`01basics/06_nums_maths.js`](./01basics/06_nums_maths.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson revisits how **numbers are handled in JavaScript** and explores commonly used **Number methods** and the built-in **Math object**. The focus is on understanding numeric formatting, precision, and mathematical utilities used in everyday development.
+
+---
+
+### Working with Numbers
+
+JavaScript supports both primitive numbers and the `Number` object.
+
+Key concepts covered:
+
+- Declaring numbers as primitive values
+- Creating numbers using the `Number` object
+- Converting numbers to strings
+- Formatting numbers using fixed decimal precision
+- Controlling numeric precision with `toPrecision()`
+
+These methods are especially useful when working with calculations, prices, and display formatting.
+
+---
+
+### Locale-Based Number Formatting
+
+- `toLocaleString()` formats numbers according to regional conventions
+- Useful for displaying large numbers in a readable, user-friendly format
+
+This is commonly used in financial and data-driven applications.
+
+---
+
+### The Math Object
+
+JavaScript provides the global `Math` object for performing mathematical operations.
+
+Key methods explored:
+
+- `Math.abs()` for absolute values  
+- `Math.round()` for rounding to the nearest integer  
+- `Math.ceil()` for rounding up  
+- `Math.floor()` for rounding down  
+- `Math.min()` and `Math.max()` for value comparison  
+
+The `Math` object itself is not a constructor but a utility object containing static methods.
+
+---
+
+### Random Number Generation
+
+Random values are generated using `Math.random()`.
+
+Concepts demonstrated:
+
+- Generating a random decimal between 0 and 1
+- Scaling random values to a desired range
+- Generating random integers between a minimum and maximum value
+
+This technique is commonly used in games, simulations, and probabilistic logic.
+
+---
+
+### Key Takeaways
+
+- JavaScript numbers provide multiple formatting and precision utilities
+- The `Number` object exposes useful helper methods
+- The `Math` object offers essential mathematical operations
+- Random number generation requires proper scaling for realistic ranges
+- Understanding numeric behavior helps avoid rounding and precision issues
+
+---
+
 
 
 ## License
