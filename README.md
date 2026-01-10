@@ -631,6 +631,90 @@ This technique is commonly used in games, simulations, and probabilistic logic.
 
 ---
 
+## Lesson 08: Date and Time in JavaScript
+
+Source File:  
+[`01basics/07_datesinJS.js`](./01basics/07_datesinJS.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson explores **date and time handling in JavaScript** using the built-in `Date` object. It focuses on creating dates, formatting them in different ways, working with timestamps, and extracting specific date components.
+
+Understanding how JavaScript manages dates is essential for logging, scheduling, time-based calculations, and user-facing applications.
+
+---
+
+### Creating Date Objects
+
+A `Date` object can be created in multiple ways:
+
+- Current date and time using `new Date()`
+- By passing individual components (year, month, day, time)
+- Using date strings in different formats
+
+JavaScript months are **zero-based** when using numeric parameters, which is an important detail to remember.
+
+---
+
+### Date Formatting Methods
+
+Several methods are used to represent dates in readable formats:
+
+- `toString()`  
+- `toDateString()`  
+- `toISOString()`  
+- `toJSON()`  
+- `toLocaleDateString()`  
+- `toLocaleString()`  
+- `toLocaleTimeString()`  
+
+These methods help format dates depending on use case, locale, and readability requirements.
+
+---
+
+### Working with Timestamps
+
+- `Date.now()` returns the current timestamp in milliseconds
+- Dividing by `1000` converts milliseconds to seconds
+- Timestamps are useful for comparisons, performance tracking, and time calculations
+
+---
+
+### Extracting Date Information
+
+The lesson demonstrates how to retrieve specific parts of a date:
+
+- `getMonth()` returns the month (zero-based)
+- `getDay()` returns the day of the week
+- `typeof Date` returns `object`
+
+These methods are commonly used when building calendars or time-based logic.
+
+---
+
+### Locale-Based Date Customization
+
+The `toLocaleDateString()` method can accept configuration options:
+
+- Customizing output such as weekday names
+- Adapting date formats to different locales
+
+This approach is useful for internationalized applications.
+
+---
+
+### Key Takeaways
+
+- Dates in JavaScript are represented as objects
+- Multiple constructors exist for creating date instances
+- Formatting options vary based on locale and method used
+- Timestamps are millisecond-based by default
+- Locale-aware formatting improves user experience
+
+---
+
 
 
 ## License
