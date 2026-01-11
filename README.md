@@ -715,6 +715,90 @@ This approach is useful for internationalized applications.
 
 ---
 
+## Lesson 09: Arrays in JavaScript
+
+Source File:  
+[`02_basics/01_arrays.js`](./02_basics/01_arrays.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson introduces **arrays in JavaScript** and revisits their core characteristics, common methods, and behavior. Arrays are one of the most widely used data structures in JavaScript and are essential for storing and manipulating collections of data.
+
+Learners are encouraged to refer to **MDN documentation** to explore additional array methods and deeper details.
+
+---
+
+### Creating Arrays
+
+Arrays can store multiple values and are not restricted to a single data type.
+
+Key points covered:
+
+- Arrays can contain mixed data types
+- Elements are accessed using zero-based indexing
+- Arrays are ordered collections
+
+---
+
+### Accessing Elements
+
+- Array elements are accessed using index notation
+- Indexing starts from `0`
+- Accessing an invalid index returns `undefined`
+
+---
+
+### Common Array Methods
+
+This lesson demonstrates frequently used array methods:
+
+- `push()` – adds elements to the end of the array  
+- `pop()` – removes the last element  
+- `unshift()` – adds elements to the beginning of the array  
+- `shift()` – removes the first element  
+- `includes()` – checks if a value exists in the array  
+- `join()` – converts an array into a string  
+
+An important observation is that `join()` returns a string, while the original array remains unchanged.
+
+---
+
+### Understanding Array Types
+
+- Arrays are of type `object` in JavaScript
+- Converting arrays to strings changes the data type
+- Knowing the type helps prevent logical errors
+
+---
+
+### Slice vs Splice
+
+A key comparison explored in this lesson:
+
+- `slice(start, end)`  
+  - Returns a shallow copy of part of an array  
+  - Does **not** modify the original array  
+
+- `splice(start, deleteCount)`  
+  - Removes elements from the array  
+  - **Modifies** the original array  
+
+Understanding the difference between these two methods is critical for writing predictable array logic.
+
+---
+
+### Key Takeaways
+
+- Arrays can store heterogeneous data
+- Most array methods mutate the original array
+- `slice()` is non-mutating, while `splice()` mutates the array
+- `includes()` is useful for validation checks
+- Always consult MDN for detailed method behavior
+
+---
+
 
 
 ## License
