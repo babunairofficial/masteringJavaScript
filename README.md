@@ -799,6 +799,64 @@ Understanding the difference between these two methods is critical for writing p
 
 ---
 
+## Lesson 10: Arrays in JavaScript (Advanced Operations)
+
+Source File:  
+[`02_basics/02_arrays.js`](./02_basics/02_arrays.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson continues the exploration of **arrays in JavaScript**, focusing on combining arrays, flattening nested structures, and using static array methods. These concepts are commonly used when working with real-world data and complex collections.
+
+---
+
+### Combining Arrays
+
+Different ways to merge arrays are explored:
+
+- Using `push()` (commented out) results in a nested array
+- Using `concat()` creates a new combined array
+- Using the **spread operator (`...`)** merges arrays cleanly and is the preferred modern approach
+
+The spread operator improves readability and avoids unintended nesting.
+
+---
+
+### Flattening Nested Arrays
+
+Arrays can contain nested arrays. To simplify such structures:
+
+- `flat()` is used to flatten nested arrays
+- Passing `Infinity` ensures all nested levels are flattened
+
+This is especially useful when handling deeply nested data from APIs or transformations.
+
+---
+
+### Array Identification and Creation
+
+Static methods provided by the `Array` object are introduced:
+
+- `Array.isArray()` checks whether a value is an array
+- `Array.from()` creates an array from iterable or array-like objects
+- `Array.of()` creates an array from a set of individual values
+
+An important observation is that `Array.from()` requires clear instructions when used with objects; otherwise, it returns an empty array.
+
+---
+
+### Key Takeaways
+
+- The spread operator is the cleanest way to merge arrays
+- `flat()` simplifies nested array structures
+- `Array.isArray()` is the safest way to verify arrays
+- `Array.from()` works well with iterable data like strings
+- `Array.of()` provides a clear way to create arrays from values
+
+---
+
 
 
 ## License
