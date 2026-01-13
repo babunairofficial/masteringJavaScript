@@ -857,6 +857,92 @@ An important observation is that `Array.from()` requires clear instructions when
 
 ---
 
+## Lesson 11: Objects in JavaScript (Object Literals)
+
+Source File:  
+[`02_basics/03_objects.js`](./02_basics/03_objects.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson introduces **objects in JavaScript** using object literals. Objects are fundamental to JavaScript and are used to group related data and behavior together.
+
+The lesson also touches on symbols, property access patterns, immutability, and methods inside objects.
+
+---
+
+### Creating Objects
+
+Objects can be created in multiple ways. This lesson focuses on **object literals**, which are the most commonly used and readable form.
+
+Key concepts covered:
+
+- Defining key–value pairs
+- Using strings as object keys
+- Storing arrays and different data types as values
+- Using `Symbol` as a unique object key
+
+---
+
+### Accessing Object Properties
+
+Two main ways to access object properties are demonstrated:
+
+- Dot notation (`object.property`)
+- Bracket notation (`object["property"]`)
+
+Bracket notation is required when:
+- The key contains spaces
+- The key is a `Symbol`
+
+---
+
+### Symbols as Object Keys
+
+- Symbols provide guaranteed uniqueness
+- Even identical symbol descriptions create different keys
+- Symbols must be accessed using bracket notation
+
+This is useful for creating properties that should not clash with regular keys.
+
+---
+
+### Updating and Freezing Objects
+
+- Object properties can be modified after creation
+- `Object.freeze()` can be used to make an object immutable
+- Once frozen, changes to the object are ignored
+
+This concept is important when working with shared or sensitive data.
+
+---
+
+### Adding Methods to Objects
+
+Objects can contain functions, referred to as **methods**.
+
+Key ideas shown:
+
+- Functions can be added dynamically to objects
+- Methods can access object properties using `this`
+- `this` refers to the current object context
+
+Using `this` allows methods to work with object data in a flexible way.
+
+---
+
+### Key Takeaways
+
+- Objects store related data and behavior together
+- Bracket notation enables advanced property access
+- Symbols create unique and collision-free keys
+- `Object.freeze()` prevents unintended mutations
+- Methods enhance object functionality
+- `this` provides access to the object’s own properties
+
+---
+
 
 
 ## License
