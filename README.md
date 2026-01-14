@@ -943,6 +943,101 @@ Using `this` allows methods to work with object data in a flexible way.
 
 ---
 
+## Lesson 12: Objects in JavaScript (Advanced Object Operations)
+
+Source File:  
+[`02_basics/04_objects.js`](./02_basics/04_objects.js)
+
+---
+
+### What This Lesson Covers
+
+This lesson continues the study of **objects in JavaScript**, focusing on object creation patterns, nested objects, object merging techniques, and commonly used `Object` utility methods.
+
+It also introduces how objects are commonly structured when data is received from databases or APIs.
+
+---
+
+### Object Creation Patterns
+
+Objects can be created in different ways:
+
+- Using the `Object` constructor (singleton object)
+- Using object literals (non-singleton object)
+
+In practice, object literals are more commonly used due to their simplicity and readability.
+
+---
+
+### Working with Nested Objects
+
+Objects can contain other objects as values.
+
+Key points demonstrated:
+
+- Deeply nested object structures
+- Accessing nested properties using dot notation
+- Common real-world use case: structured user data
+
+Understanding nested objects is essential when working with complex data models.
+
+---
+
+### Combining Objects
+
+Multiple approaches to merge objects are explored:
+
+1. **Direct nesting**  
+   Creating an object with other objects as properties, which does not merge values.
+
+2. **`Object.assign()`**  
+   Copies properties from source objects into a target object.  
+   Using an empty object as the first argument avoids mutating existing objects.
+
+   MDN Reference:  
+   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+3. **Spread operator (`...`)**  
+   A modern and concise way to merge objects.
+
+The spread operator is generally preferred for its readability and simplicity.
+
+---
+
+### Objects from Databases
+
+Data from databases or APIs often arrives as an **array of objects**.
+
+This lesson demonstrates:
+
+- Accessing object properties inside arrays
+- Using indexes to retrieve specific records
+
+---
+
+### Object Utility Methods
+
+Common `Object` methods explored:
+
+- `Object.keys()` – returns an array of property names
+- `Object.values()` – returns an array of property values
+- `Object.entries()` – returns key–value pairs as arrays
+- `hasOwnProperty()` – checks if a property exists directly on the object
+
+These methods are frequently used for validation, iteration, and debugging.
+
+---
+
+### Key Takeaways
+
+- Object literals are the most common way to create objects
+- Nested objects are common in real-world data
+- Use `Object.assign()` or spread syntax to merge objects properly
+- Data from databases often comes as arrays of objects
+- Object utility methods help inspect and validate object structure
+
+---
+
 
 
 ## License
