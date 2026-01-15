@@ -1038,6 +1038,96 @@ These methods are frequently used for validation, iteration, and debugging.
 
 ---
 
+## Lesson 13: Object Destructuring and Understanding API Data
+
+Source File:  
+[`02_basics/04_objects.js`](./02_basics/04_objects.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture continues the discussion on **JavaScript objects**, focusing on:
+
+- Object destructuring
+- Renaming variables during destructuring
+- How destructuring is commonly used in React
+- Understanding API responses and JSON data structures
+
+It also introduces real-world API data exploration using a public API and a JSON formatting tool.
+
+---
+
+### Object Destructuring in JavaScript
+
+Destructuring allows you to extract values from objects and store them in variables in a clean and readable way.
+
+Key concepts demonstrated:
+
+- Extracting properties directly from objects
+- Avoiding repetitive dot notation
+- Improving code readability
+
+Example concepts covered:
+- Basic destructuring
+- Renaming variables while destructuring (aliasing)
+
+This pattern is widely used in modern JavaScript codebases.
+
+---
+
+### Destructuring in React
+
+A common real-world use case of destructuring is in **React components**, especially when working with `props`.
+
+Instead of accessing properties via `props.propertyName`, destructuring allows direct access inside function parameters, resulting in cleaner component code.
+
+---
+
+### Understanding APIs and JSON Data
+
+APIs commonly return data in **JSON format**, which closely resembles JavaScript objects.
+
+This lesson highlights:
+- API responses structured as objects
+- API responses structured as arrays of objects
+- Why understanding object and array nesting is important
+
+These patterns are fundamental when consuming APIs in frontend and backend applications.
+
+---
+
+### Real-World Example: Random User API
+
+To understand real API data, the following tools were used:
+
+- **Random User Generator API**  
+  https://randomuser.me/
+
+  This API provides complex, nested JSON data similar to what is encountered in production applications.
+
+- **JSON Formatter**  
+  https://jsonformatter.org/
+
+  Used to visualize, format, and understand deeply nested JSON structures returned by APIs.
+
+These tools help in:
+- Identifying keys and nested properties
+- Planning destructuring strategies
+- Avoiding errors when accessing deeply nested data
+
+---
+
+### Key Takeaways
+
+- Object destructuring simplifies property access
+- Variable aliasing improves naming clarity
+- Destructuring is heavily used in React
+- API responses are usually JSON objects or arrays of objects
+- Tools like JSON formatters make API exploration easier
+
+---
+
 
 
 ## License

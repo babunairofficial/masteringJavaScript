@@ -71,3 +71,47 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 console.log(tinderUser.hasOwnProperty('isLogged'));
 
 //check out other object methods using console
+
+
+// Destructuring
+const course = {
+    coursename: "javascript refresher",
+    price: "999",
+    courseInstructor: "HC"
+}
+
+// course.courseInstructor
+
+// renaming variables while destructuring
+const {courseInstructor} = course;
+console.log(courseInstructor);
+// or
+const {courseInstructor: instructor} = course;
+console.log(instructor);
+
+// destructuring in React
+// const navbar = ({company}) => {
+
+// }
+
+// navbar(company = "hc");
+
+// APIs look like objects
+// {
+//     // APIs commonly return data in JSON format.
+//     "name": "cyborg",
+//     "alterego": "victor stone",
+//     "city": "Detroit"
+// }
+
+// APIs can be in the form of array of objects.
+[
+    {},
+    {},
+    {}
+]
+
+// random user generator api 
+
+
+// JSON formatter to understand api structure
