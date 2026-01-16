@@ -1128,6 +1128,97 @@ These tools help in:
 
 ---
 
+## Lesson 14: Functions in JavaScript
+
+Source File:  
+[`03_basics/01_functions.js`](./03_basics/01_functions.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture introduces **functions in JavaScript**, one of the most fundamental building blocks of the language. It focuses on:
+
+- Defining and calling functions
+- Difference between function reference and execution
+- Parameters vs arguments
+- Return values and their importance
+- Handling undefined values
+- Default parameters in functions
+
+---
+
+### Defining and Calling Functions
+
+A function is a reusable block of code designed to perform a specific task.
+
+Key ideas demonstrated:
+- Writing a function using the `function` keyword
+- Understanding the difference between:
+  - **Function reference** (just the function name)
+  - **Function execution** (calling the function using `()`)
+
+Functions help reduce repetition and make code more organized.
+
+---
+
+### Function Parameters and Arguments
+
+Functions can accept inputs called **parameters**, and the actual values passed during execution are called **arguments**.
+
+Important observations:
+- JavaScript does not enforce strict data types for function parameters
+- Passing unexpected types (like numbers and strings together) can lead to unexpected results
+- Functions without a return statement return `undefined` by default
+
+---
+
+### Return Statements in Functions
+
+This lesson highlights the importance of the `return` keyword:
+
+- `return` sends a value back to the caller
+- Any code written after `return` is not executed
+- Returned values can be stored in variables and reused
+
+Understanding return values is essential for writing predictable and reusable functions.
+
+---
+
+### Handling Undefined and Missing Arguments
+
+When a function is called without required arguments:
+- Parameters become `undefined`
+- Template strings may display `undefined` if not handled properly
+
+Techniques shown:
+- Explicit checks for `undefined`
+- Using logical checks (`if (!username)`) to handle empty or missing values
+- Graceful handling of invalid inputs using early returns
+
+---
+
+### Default Function Parameters
+
+Functions can have **default parameter values**, which are used when no argument is passed.
+
+Benefits:
+- Prevents `undefined` values
+- Makes functions safer and more predictable
+- Allows arguments to override defaults when provided
+
+---
+
+### Key Takeaways
+
+- Functions help organize and reuse code
+- Parameters are flexible but must be handled carefully
+- Always be mindful of return values
+- Input validation prevents unexpected behavior
+- Default parameters improve function robustness
+
+---
+
 
 
 ## License
