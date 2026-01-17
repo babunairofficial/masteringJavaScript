@@ -1219,6 +1219,87 @@ Benefits:
 
 ---
 
+## Lesson 15: Functions with Arrays and Objects in JavaScript
+
+Source File:  
+[`03_basics/01_functions.js`](./03_basics/01_functions.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture extends the concept of functions by focusing on how **functions interact with arrays and objects**, which is extremely common in real-world JavaScript applications.
+
+Topics covered include:
+- Using the **rest operator** in function parameters
+- Passing **objects** to functions
+- Passing **arrays** to functions
+- Accessing values safely inside functions
+
+All previous code in this file has been commented out, and this lesson focuses only on the new examples below.
+
+---
+
+### Functions with the Rest Operator
+
+The **rest operator (`...`)** allows a function to accept any number of arguments and collect them into an array.
+
+Key points:
+- The rest operator groups remaining arguments into an array
+- Useful when the number of inputs is unknown (e.g., shopping cart prices)
+
+Example behavior demonstrated:
+- When only `...num1` is used, all arguments become part of an array
+- When fixed parameters are defined before the rest operator, those parameters take the first values, and the rest are grouped
+
+This pattern is commonly used in e-commerce carts, aggregations, and utility functions.
+
+---
+
+### Passing Objects to Functions
+
+Functions can accept entire objects as arguments, allowing structured data to be processed easily.
+
+Important concepts shown:
+- Accessing object properties inside a function
+- Using template strings to format object data
+- Passing objects directly while calling a function (inline objects)
+
+This pattern is widely used when handling:
+- User data
+- API responses
+- Configuration objects
+
+Note: Property names must match exactly, otherwise values may be `undefined`.
+
+---
+
+### Passing Arrays to Functions
+
+Arrays can also be passed directly into functions and accessed using index positions.
+
+Key ideas:
+- Functions can extract specific values from arrays
+- Arrays can be passed either as variables or directly as arguments
+- Index-based access should be handled carefully to avoid unexpected `undefined` values
+
+This approach is common when working with:
+- Lists of prices
+- Scores
+- API-generated arrays
+
+---
+
+### Key Takeaways
+
+- The rest operator helps handle variable numbers of arguments cleanly
+- Functions can work seamlessly with objects and arrays
+- Passing structured data improves function flexibility
+- Always ensure property names and indexes are correct
+- These patterns are foundational for real-world JavaScript and frameworks like React
+
+---
+
 
 
 ## License
