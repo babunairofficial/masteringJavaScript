@@ -1300,6 +1300,87 @@ This approach is common when working with:
 
 ---
 
+## Lesson 16: Global Scope and Local Scope in JavaScript
+
+Source File:  
+[`03_basics/02_scopes.js`](./03_basics/02_scopes.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture focuses on **scope in JavaScript**, which defines **where variables can be accessed or modified** in your code. Understanding scope is critical for writing predictable, bug-free programs.
+
+Topics covered include:
+- Global scope
+- Block (local) scope
+- Differences between `let`, `const`, and `var`
+- Scope behavior inside `if` blocks and loops
+
+---
+
+### Global Scope
+
+Variables declared **outside any block or function** belong to the global scope.
+
+Key points demonstrated:
+- Global variables can be accessed anywhere in the file
+- Overusing global variables can lead to naming conflicts and bugs
+
+In this example:
+- Variables declared with `let` outside the `if` block exist in the global scope
+- They remain accessible after the block executes
+
+---
+
+### Block (Local) Scope
+
+Variables declared using `let` and `const` inside `{}` are **block-scoped**.
+
+Key observations:
+- Variables inside an `if` block are not accessible outside it
+- Inner variables can **shadow** global variables with the same name
+- The global variable remains unchanged outside the block
+
+This helps prevent accidental overwrites and keeps code modular.
+
+---
+
+### Why `var` Is Avoided
+
+The code intentionally avoids using `var` to highlight best practices.
+
+Important notes:
+- `var` does **not respect block scope**
+- Variables declared with `var` inside a block are still accessible outside
+- This can cause unexpected behavior and hard-to-track bugs
+
+Modern JavaScript prefers `let` and `const` for safer scoping.
+
+---
+
+### Scope Inside Loops
+
+Loops also create block scope when using `let` and `const`.
+
+Key idea:
+- Variables declared inside loops are limited to the loop block
+- They cannot be accessed outside the loop
+
+This prevents loop variables from leaking into the surrounding scope.
+
+---
+
+### Key Takeaways
+
+- Global scope variables are accessible everywhere
+- `let` and `const` are block-scoped
+- Variables inside blocks do not affect outer variables with the same name
+- Avoid `var` due to its lack of block scoping
+- Proper scoping leads to cleaner, safer, and more maintainable code
+
+---
+
 
 
 ## License
