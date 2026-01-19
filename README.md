@@ -1381,6 +1381,110 @@ This prevents loop variables from leaking into the surrounding scope.
 
 ---
 
+## Lesson 17: Scope Levels and Mini Hoisting in JavaScript
+
+Source File:  
+[`03_basics/02_scopes.js`](./03_basics/02_scopes.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture continues the discussion on **JavaScript scopes**, focusing on:
+- Scope levels (nested scopes)
+- Lexical scoping
+- Function scope vs block scope
+- Mini hoisting behavior in JavaScript
+- Difference between function declarations and function expressions
+
+All previously written scope examples are commented out, and the focus is on **nested functions and execution order**.
+
+---
+
+## Scope Levels and Lexical Scoping
+
+JavaScript follows **lexical scoping**, which means:
+- Inner functions can access variables from their parent scopes
+- Outer scopes cannot access variables declared inside inner scopes
+
+### Nested Function Scope
+
+In this example:
+- A function is defined inside another function
+- The inner function can access variables from the outer function
+- The outer function cannot access variables declared inside the inner function
+
+This demonstrates how **scope flows inward**, not outward.
+
+---
+
+## Block Scope with `if` Statements
+
+This section reinforces block-level scoping:
+- Variables declared using `const` or `let` inside an `if` block exist only within that block
+- Nested `if` blocks create their own scopes
+- Variables declared inside inner blocks are not accessible in outer blocks
+
+This prevents accidental data leakage and keeps logic isolated.
+
+---
+
+## Function Execution Context
+
+A function must be **called** for its inner logic to execute.
+- Inner functions only run when explicitly invoked
+- Parent functions control the lifecycle of child functions
+
+This helps in structuring modular and predictable code.
+
+---
+
+## Mini Hoisting in JavaScript
+
+This part introduces **hoisting behavior differences**.
+
+### Function Declarations
+
+- Function declarations are hoisted
+- They can be called **before** their definition appears in the file
+
+This works because JavaScript loads function declarations into memory during the creation phase.
+
+---
+
+### Function Expressions
+
+- Function expressions are **not hoisted**
+- They behave like variables
+- Calling them before initialization results in an error
+
+This happens because:
+- Only the variable name is hoisted
+- The function assignment happens at runtime
+
+---
+
+## Key Differences Highlighted
+
+| Concept | Function Declaration | Function Expression |
+|------|----------------------|---------------------|
+| Hoisted | Yes | No |
+| Callable before definition | Yes | No |
+| Stored as | Function | Variable reference |
+
+---
+
+## Key Takeaways
+
+- JavaScript supports nested scopes
+- Inner scopes can access outer scope variables
+- Block scope applies to `let` and `const`
+- Function declarations are hoisted
+- Function expressions follow variable hoisting rules
+- Understanding execution order prevents runtime errors
+
+---
+
 
 
 ## License
