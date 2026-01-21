@@ -1587,6 +1587,90 @@ This is a common pitfall and an important syntax rule to remember.
 
 ---
 
+## Lesson 19: Immediately Invoked Function Expressions (IIFE) in JavaScript
+
+Source File:  
+[`03_basics/04_iife.js`](./03_basics/04_iife.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture introduces **Immediately Invoked Function Expressions (IIFE)** and explains:
+- What an IIFE is
+- Why IIFEs are used
+- How IIFEs help avoid global scope pollution
+- Different syntaxes for writing IIFEs
+- Named vs unnamed IIFEs
+- Using parameters with IIFEs
+
+---
+
+## What Is an IIFE?
+
+An **IIFE** is a JavaScript function that:
+- Is defined as an expression
+- Executes immediately after its creation
+- Does not leave variables in the global scope
+
+This pattern is commonly used to:
+- Protect variables from the global scope
+- Execute setup or initialization logic
+- Avoid naming conflicts in large applications
+
+---
+
+## Basic IIFE Structure
+
+An IIFE consists of:
+1. A function wrapped inside parentheses to convert it into an expression
+2. An immediate function call using `()`
+
+The semicolon at the end is important to prevent issues when multiple IIFEs are written sequentially.
+
+---
+
+## Named IIFE
+
+A **named IIFE**:
+- Has a function name
+- Helps in debugging and stack traces
+- Still executes immediately and does not pollute the global scope
+
+This pattern is useful when you want clarity during debugging.
+
+---
+
+## Multiple IIFEs
+
+When writing more than one IIFE:
+- Each IIFE must be properly terminated with a semicolon
+- This avoids unexpected execution errors caused by JavaScript’s automatic semicolon insertion
+
+---
+
+## Arrow Function IIFE
+
+IIFEs can also be written using arrow functions:
+- Useful for concise syntax
+- Inherits `this` from the surrounding scope
+- Commonly used in modern JavaScript codebases
+
+Arrow IIFEs can also accept parameters, making them flexible for dynamic initialization logic.
+
+---
+
+## Key Takeaways
+
+- IIFEs execute immediately after being defined
+- They help prevent global scope pollution
+- Parentheses are required to convert a function into an expression
+- Semicolons are important when chaining multiple IIFEs
+- IIFEs can be written using regular functions or arrow functions
+- Parameters can be passed to IIFEs for dynamic execution
+
+---
+
 
 
 ## License
