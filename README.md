@@ -1671,6 +1671,138 @@ Arrow IIFEs can also accept parameters, making them flexible for dynamic initial
 
 ---
 
+## Lesson 20: How JavaScript Executes Code and How the Call Stack Works
+
+Type: Theory Lecture (No source file uploaded)
+
+---
+
+### What This Lesson Covers
+
+This lecture explains **how JavaScript executes code internally** and builds a mental model around:
+- Execution contexts
+- The two-phase execution process
+- How functions are handled
+- How the call stack works
+
+This is a **conceptual lesson**, and the example code discussed here is only for demonstration purposes and is not included as a `.js` file in the repository.
+
+---
+
+## JavaScript Execution Context
+
+An **Execution Context** is an environment where JavaScript code is evaluated and executed.
+
+JavaScript has three types of execution contexts:
+
+1. **Global Execution Context**
+   - Created when the program starts
+   - `this` is initialized here
+   - Exists only once per program
+
+2. **Function Execution Context**
+   - Created every time a function is invoked
+   - Has its own variable environment and execution thread
+
+3. **Eval Execution Context**
+   - Created when code is executed inside `eval()`
+   - Rarely used and generally discouraged
+
+---
+
+## Two Phases of JavaScript Execution
+
+Every execution context goes through **two phases**:
+
+### 1. Memory Creation Phase (Creation Phase)
+
+In this phase:
+- Memory is allocated for variables and functions
+- Variables are initialized with `undefined`
+- Function definitions are stored entirely
+
+No code is executed in this phase.
+
+---
+
+### 2. Execution Phase
+
+In this phase:
+- Variables are assigned actual values
+- Functions are executed
+- New execution contexts are created for function calls
+
+---
+
+## Step-by-Step Execution Flow (Conceptual)
+
+### Global Execution Context
+
+**Memory Phase**
+- Variables are allocated memory and set to `undefined`
+- Functions are stored as definitions
+
+**Execution Phase**
+- Variables receive assigned values
+- Function calls create new execution contexts
+
+---
+
+### Function Execution Context
+
+Each function call creates:
+- A new variable environment
+- A new execution thread
+
+Inside a function:
+1. Memory Phase  
+   - Parameters and local variables are set to `undefined`
+2. Execution Phase  
+   - Parameters receive values
+   - Logic executes
+   - Return value is produced
+3. Once completed, the function execution context is destroyed
+
+---
+
+## Call Stack
+
+The **Call Stack** manages execution contexts.
+
+- Works on **LIFO (Last In, First Out)** principle
+- Global execution context is pushed first
+- Each function call is pushed on top of the stack
+- Once a function finishes, it is popped off the stack
+
+This ensures JavaScript executes code **one context at a time**, even though it may appear asynchronous in some cases.
+
+---
+
+## Demonstration Code (Conceptual Only)
+
+The following example was used only to explain execution flow and call stack behavior during the lecture:
+
+- Variables are declared in the global scope
+- A function is defined
+- The function is called multiple times
+- Each call creates a new execution context
+- The call stack manages entry and exit of these contexts
+
+This code is **not committed** to the repository, as its purpose is explanatory rather than practical.
+
+---
+
+## Key Takeaways
+
+- JavaScript executes code inside execution contexts
+- Every context has a memory phase and an execution phase
+- Functions create their own execution contexts
+- The call stack manages execution order
+- JavaScript follows a single-threaded execution model
+- Understanding this model helps debug scope, hoisting, and runtime issues
+
+---
+
 
 
 ## License
