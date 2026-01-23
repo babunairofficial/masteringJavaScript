@@ -1803,6 +1803,108 @@ This code is **not committed** to the repository, as its purpose is explanatory 
 
 ---
 
+## Lesson 21: Control Flow – `if` Conditions in JavaScript
+
+Source File:  
+[`04_control_flow/01_one.js`](./04_control_flow/01_one.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture marks the transition from JavaScript basics into **control flow**.  
+The focus here is on understanding how **`if` conditions** work and how JavaScript evaluates decisions based on different expressions.
+
+Topics covered include:
+- Basic `if` and `else` statements
+- Comparison operators
+- Strict vs loose equality
+- Block scope inside conditional statements
+- Implicit vs explicit conditional blocks
+- Logical operators (`&&`, `||`) for multiple conditions
+
+---
+
+## Comparison Operators
+
+JavaScript provides several comparison operators used inside conditions:
+
+- `<`, `>`, `<=`, `>=`
+- `==`, `!=` (loose comparison)
+- `===`, `!==` (strict comparison)
+
+Strict comparison (`===`) checks **both value and type**, making it the preferred choice for clean and predictable code.
+
+---
+
+## Basic `if` / `else` Flow
+
+Conditional logic allows code to execute only when a condition evaluates to `true`.
+
+- If the condition is true, the `if` block executes
+- Otherwise, the `else` block executes
+- Code outside the condition always runs
+
+This structure forms the foundation of decision-making in JavaScript.
+
+---
+
+## Scope Inside `if` Blocks
+
+Variables declared using `const` or `let` inside an `if` block:
+- Exist only within that block
+- Are not accessible outside the condition
+
+This reinforces the importance of block scope and helps prevent unintended side effects.
+
+---
+
+## Implicit Scope in `if` Statements
+
+JavaScript allows writing single-line `if` statements without curly braces:
+- This is known as **implicit scope**
+- Only the immediate next statement is controlled by the condition
+
+While valid, this style should be used carefully to avoid readability issues.
+
+---
+
+## Chained Conditions with `else if`
+
+Multiple conditions can be evaluated sequentially using:
+- `if`
+- `else if`
+- `else`
+
+Only the first matching condition is executed, and the rest are skipped.
+
+---
+
+## Logical Operators in Conditions
+
+### AND (`&&`)
+- All conditions must be `true`
+- Commonly used for permission or validation checks
+
+### OR (`||`)
+- At least one condition must be `true`
+- Useful when multiple valid paths exist
+
+These operators help build more expressive and realistic decision logic.
+
+---
+
+## Key Takeaways
+
+- Control flow determines how and when code executes
+- `if` statements are the foundation of decision-making
+- Prefer strict equality (`===`) over loose equality
+- Variables inside `if` blocks follow block scope rules
+- Logical operators allow combining multiple conditions
+- Clean conditional logic improves readability and maintainability
+
+---
+
 
 
 ## License
