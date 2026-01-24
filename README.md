@@ -1905,6 +1905,98 @@ These operators help build more expressive and realistic decision logic.
 
 ---
 
+## Lesson 22: Control Flow – `switch` Statement in JavaScript
+
+Source File:  
+[`04_control_flow/switch.js`](./04_control_flow/switch.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture continues the exploration of **control flow** in JavaScript, focusing on the **`switch` statement**.
+
+Topics covered include:
+- Basic `switch` syntax
+- How `switch` compares values
+- The role of `case`, `break`, and `default`
+- Type sensitivity in `switch` statements
+- When to use `switch` instead of multiple `if-else` conditions
+
+---
+
+## What Is a `switch` Statement?
+
+A `switch` statement:
+- Evaluates an expression once
+- Compares the result against multiple `case` values
+- Executes the matching case block
+
+It is often used when:
+- You are checking one value against many known options
+- The logic becomes repetitive with `if-else` chains
+- Readability matters
+
+---
+
+## Basic `switch` Structure
+
+A `switch` statement consists of:
+- A key (expression to evaluate)
+- Multiple `case` labels
+- A `default` block for unmatched cases
+- `break` statements to stop execution
+
+Without `break`, JavaScript continues executing subsequent cases, a behavior known as **fall-through**.
+
+---
+
+## Type Sensitivity in `switch`
+
+The `switch` statement uses **strict comparison (`===`)** internally.
+
+This means:
+- Both value and type must match
+- `"3"` and `3` are treated as different values
+
+This makes understanding data types especially important when working with `switch`.
+
+---
+
+## Role of `default`
+
+The `default` case:
+- Runs when no `case` matches
+- Acts as a fallback or error-handling path
+- Is optional but strongly recommended
+
+It helps catch unexpected or invalid inputs.
+
+---
+
+## When to Use `switch`
+
+Use `switch` when:
+- A single variable is compared against many values
+- Conditions are equality-based
+- Code readability improves over long `if-else` chains
+
+Avoid `switch` when:
+- Conditions involve ranges or complex logic
+- Multiple variables are involved
+
+---
+
+## Key Takeaways
+
+- `switch` is a clean alternative to repetitive `if-else` blocks
+- It uses strict equality for comparisons
+- `break` prevents fall-through behavior
+- `default` handles unexpected cases
+- Data type consistency is crucial in `switch` statements
+
+---
+
 
 
 ## License
