@@ -1997,6 +1997,112 @@ Avoid `switch` when:
 
 ---
 
+## Lesson 23: Control Flow – Truthy Values and the Nullish Coalescing Operator
+
+Source File:  
+[`04_control_flow/truthy.js`](./04_control_flow/truthy.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture completes the control flow section by focusing on:
+- Truthy and falsy values in JavaScript
+- How conditions are evaluated beyond `true` and `false`
+- Checking empty arrays and objects
+- The Nullish Coalescing Operator (`??`)
+- Difference between `??` and the ternary operator
+
+Understanding these concepts is essential for writing defensive and predictable JavaScript code.
+
+---
+
+## Truthy and Falsy Values
+
+In JavaScript, conditions do not always evaluate to explicit `true` or `false`.  
+Instead, values are coerced into a boolean context.
+
+### Falsy Values
+
+The following values always evaluate to `false` in a condition:
+- `false`
+- `0`, `-0`
+- `0n` (BigInt)
+- `""` (empty string)
+- `null`
+- `undefined`
+- `NaN`
+
+---
+
+### Truthy Values
+
+All values not listed as falsy are considered truthy, including:
+- `"0"`
+- `"false"`
+- `" "` (space)
+- `[]` (empty array)
+- `{}` (empty object)
+- `function() {}`
+
+This explains why certain conditions may execute even when data appears “empty”.
+
+---
+
+## Checking Empty Arrays and Objects
+
+Since empty arrays and objects are truthy, explicit checks are required:
+
+- Arrays are checked using their `.length`
+- Objects are checked using `Object.keys().length`
+
+These checks help prevent logical bugs when validating data.
+
+---
+
+## Nullish Coalescing Operator (`??`)
+
+The **Nullish Coalescing Operator** returns the right-hand value only when the left-hand value is:
+- `null`
+- `undefined`
+
+It does **not** trigger on other falsy values like `0` or `""`.
+
+This makes it ideal for:
+- Setting default values
+- Avoiding unintended overrides
+
+Multiple `??` operators can be chained, and evaluation stops at the first valid value.
+
+---
+
+## Ternary Operator vs Nullish Coalescing
+
+The ternary operator:
+- Is a conditional expression
+- Executes logic based on a boolean condition
+
+The nullish coalescing operator:
+- Handles only `null` and `undefined`
+- Is not a replacement for conditional logic
+
+Both serve different purposes and should be used accordingly.
+
+---
+
+## Key Takeaways
+
+- JavaScript evaluates conditions using truthy and falsy rules
+- Empty arrays and objects are truthy
+- Explicit checks are required for empty data structures
+- `??` handles only `null` and `undefined`
+- Ternary operators and `??` solve different problems
+- Clear checks improve code reliability
+
+---
+
+### Outcome
+
 
 
 ## License
