@@ -1806,7 +1806,7 @@ This code is **not committed** to the repository, as its purpose is explanatory 
 ## Lesson 21: Control Flow – `if` Conditions in JavaScript
 
 Source File:  
-[`04_control_flow/01_one.js`](./04_control_flow/01_one.js)
+[`04_control_flow/one.js`](./04_control_flow/one.js)
 
 ---
 
