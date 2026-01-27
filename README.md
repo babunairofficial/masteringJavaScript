@@ -2101,7 +2101,114 @@ Both serve different purposes and should be used accordingly.
 
 ---
 
-### Outcome
+## Lesson 24: Iterations – `for` Loop, `break`, and `continue` in JavaScript
+
+Source File:  
+[`05_iterations/one.js`](./05_iterations/one.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture begins the **iterations** section and focuses on:
+- Using the `for` loop in JavaScript
+- Loop initialization, condition, and increment
+- Nested `for` loops
+- Iterating over arrays
+- Controlling loop execution using `break` and `continue`
+
+Loops are a fundamental building block for working with repetitive logic and data structures.
+
+---
+
+## Basic `for` Loop
+
+A `for` loop runs as long as a condition evaluates to `true`.
+
+It consists of:
+- Initialization (runs once)
+- Condition check (before every iteration)
+- Increment or update (after every iteration)
+
+This structure is ideal when the number of iterations is known in advance.
+
+---
+
+## Conditional Logic Inside Loops
+
+Conditions can be added inside loops to:
+- Detect specific values
+- Trigger custom logic at certain iterations
+
+This allows dynamic behavior while iterating.
+
+---
+
+## Nested `for` Loops
+
+A loop inside another loop is called a **nested loop**.
+
+Common use cases include:
+- Generating multiplication tables
+- Working with matrices
+- Comparing multiple data sets
+
+The outer loop controls the number of times the inner loop runs.
+
+---
+
+## Iterating Over Arrays
+
+Arrays are commonly iterated using a `for` loop:
+- The loop runs from index `0` to `array.length - 1`
+- Each iteration accesses one element of the array
+
+This is one of the most fundamental ways to traverse arrays in JavaScript.
+
+---
+
+## Using `break`
+
+The `break` statement:
+- Immediately terminates the loop
+- Stops all further iterations
+- Transfers control outside the loop
+
+It is useful when a condition has been met and further looping is unnecessary.
+
+---
+
+## Using `continue`
+
+The `continue` statement:
+- Skips the current iteration
+- Moves directly to the next iteration
+- Does not exit the loop
+
+This is useful when certain values should be ignored without stopping the loop entirely.
+
+---
+
+## Key Differences Between `break` and `continue`
+
+| Statement | Effect |
+|--------|--------|
+| `break` | Exits the loop completely |
+| `continue` | Skips the current iteration only |
+
+---
+
+## Key Takeaways
+
+- `for` loops are ideal when iteration count is known
+- Nested loops allow multi-level iteration
+- Arrays can be traversed using index-based loops
+- `break` stops loop execution entirely
+- `continue` skips only the current iteration
+- Proper loop control improves performance and readability
+
+---
+
 
 
 
