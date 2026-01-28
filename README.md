@@ -2209,6 +2209,96 @@ This is useful when certain values should be ignored without stopping the loop e
 
 ---
 
+## Lesson 25: Iterations – `while` and `do...while` Loops in JavaScript
+
+Source File:  
+[`05_iterations/two.js`](./05_iterations/two.js)
+
+---
+
+### What This Lesson Covers
+
+This lecture continues the **iterations** topic and focuses on:
+- The `while` loop
+- The `do...while` loop
+- Differences between `for`, `while`, and `do...while`
+- Situations where `while`-based loops are more suitable
+
+These loops are especially useful when the number of iterations is **not known in advance**.
+
+---
+
+## `while` Loop
+
+A `while` loop runs as long as a given condition remains `true`.
+
+Key characteristics:
+- Condition is checked **before** each iteration
+- The loop may not run at all if the condition is initially `false`
+- Manual control of the loop variable is required
+
+This makes it useful when loop execution depends on a dynamic condition.
+
+---
+
+## Updating Values Inside a `while` Loop
+
+Inside the loop:
+- The loop variable must be updated explicitly
+- Failure to update it correctly can lead to infinite loops
+
+Incrementing or modifying the variable ensures that the loop eventually terminates.
+
+---
+
+## Iterating Over Arrays Using `while`
+
+Arrays can also be traversed using a `while` loop:
+- Start with an index variable
+- Continue looping until the index reaches the array length
+- Increment the index manually
+
+This approach is useful when array traversal needs more flexible control.
+
+---
+
+## `do...while` Loop
+
+A `do...while` loop is similar to a `while` loop, with one key difference:
+- The loop body executes **at least once**, regardless of the condition
+
+This is because the condition is checked **after** the loop body runs.
+
+---
+
+## When to Use `do...while`
+
+Use a `do...while` loop when:
+- You want the code block to run at least once
+- The condition depends on logic executed inside the loop
+- You are working with menus, user input, or retry logic
+
+---
+
+## Comparison: `while` vs `do...while`
+
+| Loop Type | Condition Check | Guaranteed Execution |
+|--------|----------------|---------------------|
+| `while` | Before loop starts | No |
+| `do...while` | After loop executes | Yes (once) |
+
+---
+
+## Key Takeaways
+
+- `while` loops are ideal when iteration count is unknown
+- Conditions are evaluated before each `while` iteration
+- `do...while` loops always execute at least once
+- Manual control of loop variables is essential
+- Choosing the right loop improves clarity and control
+
+---
+
 
 
 
