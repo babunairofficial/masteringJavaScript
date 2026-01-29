@@ -2299,6 +2299,182 @@ Use a `do...while` loop when:
 
 ---
 
+## Lesson 26: Iterations – High Order Array Loops in JavaScript
+
+Source Files:  
+- `05_iterations/three.js`  
+- `05_iterations/four.js`  
+- `05_iterations/five.js`  
+
+Reference (Maps – MDN):  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+---
+
+### What This Lesson Covers
+
+This lecture dives into **high-order iteration patterns** in JavaScript and focuses on:
+- `for...of` loop
+- `for...in` loop
+- `Map` objects and their iteration behavior
+- High Order Functions like `forEach`
+- Iterating over arrays, strings, objects, and complex data structures
+
+These concepts are extremely important for **modern JavaScript**, especially when working with data, APIs, and frameworks like React.
+
+---
+
+## `for...of` Loop
+
+The `for...of` loop is used to iterate over **iterable objects**.
+
+Iterable examples:
+- Arrays
+- Strings
+- Maps
+- Sets
+
+### Key Points
+- Directly gives **values**, not indexes
+- Clean and readable syntax
+- Works only on iterable data structures
+
+### Common Use Cases
+- Looping over arrays
+- Iterating character-by-character over strings
+- Traversing Maps
+
+---
+
+## Iterating Over Strings
+
+Strings are iterable in JavaScript.  
+Each character can be accessed individually using `for...of`.
+
+This is useful for:
+- Text processing
+- Validation
+- Parsing characters
+
+---
+
+## `Map` Object
+
+A `Map` stores **unique key–value pairs** and preserves insertion order.
+
+Why use `Map` instead of plain objects?
+- Keys can be of any type
+- Maintains insertion order
+- Designed specifically for iteration
+
+### Iterating Over Maps
+
+- Iterating directly gives `[key, value]` pairs
+- Destructuring can be used for cleaner access
+
+📌 **Important Notes**
+- `Map` is iterable using `for...of`
+- `Map` is **not iterable** using `for...in`
+- Plain objects are **not iterable** using `for...of`
+
+(These limitations are demonstrated in the commented code.)
+
+---
+
+## `for...in` Loop
+
+The `for...in` loop is used to iterate over **keys** of an object.
+
+### Works With
+- Objects
+- Arrays (but iterates over indexes, not values)
+
+### Key Characteristics
+- Returns keys (property names)
+- Ideal for objects
+- Less preferred for arrays when values are needed
+
+---
+
+## `for...in` with Objects
+
+Using `for...in`:
+- Keys can be accessed directly
+- Values can be accessed using bracket notation
+
+This pattern is commonly used when dealing with configuration objects or dictionaries.
+
+---
+
+## `for...in` with Arrays
+
+When used on arrays:
+- It iterates over **indexes**
+- Indexes are returned as strings
+
+⚠️ Because of this behavior, `for...of` or `forEach` is usually preferred for arrays.
+
+---
+
+## High Order Functions
+
+A **High Order Function** is a function that:
+- Takes another function as an argument, or
+- Returns a function
+
+JavaScript arrays provide built-in high-order methods like:
+- `forEach`
+- `map`
+- `filter`
+- `reduce`
+
+This lesson focuses on `forEach`.
+
+---
+
+## `forEach` Method
+
+`forEach` executes a callback function **once for each element** in an array.
+
+### Key Points
+- Does not return a value
+- Ideal for side effects (logging, DOM updates, mutations)
+- Callback receives:
+  - current item
+  - index
+  - entire array
+
+### Callback Styles
+- Anonymous function
+- Arrow function
+- Named function reference
+
+---
+
+## Using `forEach` with Objects Inside Arrays
+
+Arrays of objects are very common in real-world applications (API responses, databases).
+
+Using `forEach`, you can:
+- Access object properties
+- Extract specific values
+- Perform operations on structured data
+
+This pattern is heavily used in frontend development.
+
+---
+
+## Key Takeaways
+
+- `for...of` → values from iterable data structures
+- `for...in` → keys of objects (or indexes of arrays)
+- Objects are **not iterable** with `for...of`
+- Maps are iterable and preserve order
+- `forEach` is a powerful high-order function
+- Callback functions unlock expressive iteration logic
+
+---
+
 
 
 
