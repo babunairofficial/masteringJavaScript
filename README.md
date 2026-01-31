@@ -2475,6 +2475,212 @@ This pattern is heavily used in frontend development.
 
 ---
 
+````markdown
+## Lesson 27: Iterations – `filter`, `map`, and `reduce` in JavaScript
+
+Source Files:  
+- `05_iterations/six.js`  
+- `05_iterations/seven.js`  
+- `05_iterations/eight.js`  
+
+Reference (Reduce – MDN):  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
+---
+
+### What This Lesson Covers
+
+This lecture introduces the **most important High Order Array Methods** in JavaScript:
+
+- `forEach`
+- `filter`
+- `map`
+- `reduce`
+
+These methods are heavily used in **modern JavaScript**, **React**, and while handling **API data**.
+
+---
+
+## `forEach`
+
+`forEach` is used to iterate over arrays, but **it does not return anything**.
+
+### Syntax
+
+```javascript
+array.forEach((item, index, arr) => {
+    // logic here
+});
+````
+
+### Key Point
+
+* Used only for side effects (logging, updating values, etc.)
+* Does **not** create a new array
+* Always returns `undefined`
+
+---
+
+## `filter`
+
+`filter` is used to **extract elements** from an array based on a condition.
+It **returns a new array**.
+
+### Syntax
+
+```javascript
+const newArray = array.filter((item) => condition);
+```
+
+or when using a scope:
+
+```javascript
+const newArray = array.filter((item) => {
+    return condition;
+});
+```
+
+### Use Cases Demonstrated
+
+* Filtering numbers greater than a value
+* Filtering objects based on properties (books by genre and year)
+
+### Important
+
+If using `{}` in arrow function, you must use `return`.
+
+---
+
+## `filter` vs `forEach`
+
+The same filtering can be done using `forEach`, but it requires:
+
+* Creating an empty array
+* Manually pushing values
+
+`filter` does this automatically and is cleaner.
+
+---
+
+## Working with Arrays of Objects using `filter`
+
+A common real-world scenario:
+
+* Filtering data from an array of objects (like books, users, products)
+
+Examples shown:
+
+* Books of genre "History"
+* Books published after 1980 and genre "History"
+
+---
+
+## `map`
+
+`map` is used to **transform** every element of an array.
+It **returns a new array** of the same length.
+
+### Syntax
+
+```javascript
+const newArray = array.map((item) => transformation);
+```
+
+or
+
+```javascript
+const newArray = array.map((item) => {
+    return transformation;
+});
+```
+
+### Chaining
+
+One of the most powerful features of `map` is **method chaining**:
+
+```javascript
+array
+  .map(...)
+  .map(...)
+  .filter(...);
+```
+
+This allows multiple transformations in a clean and readable way.
+
+---
+
+## `reduce`
+
+`reduce` is used to **reduce an array to a single value**.
+
+This could be:
+
+* Sum
+* Total price
+* Combined result
+* Aggregated data
+
+### Syntax
+
+```javascript
+const result = array.reduce((accumulator, currentValue) => {
+    return updatedAccumulator;
+}, initialValue);
+```
+
+Arrow function version:
+
+```javascript
+const result = array.reduce((acc, currVal) => acc + currVal, 0);
+```
+
+### Parameters
+
+* `accumulator` → stores the result of previous computation
+* `currentValue` → current item in iteration
+* `initialValue` → starting value of accumulator
+
+---
+
+## Real-World Example with `reduce`
+
+Using `reduce` to calculate total cart value:
+
+```javascript
+const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0);
+```
+
+This pattern is very common in:
+
+* Shopping carts
+* Billing systems
+* Data aggregation
+
+---
+
+## Key Differences
+
+| Method    | Returns New Array | Purpose                            |
+| --------- | ----------------- | ---------------------------------- |
+| `forEach` | No                | Perform side effects               |
+| `filter`  | Yes               | Select elements based on condition |
+| `map`     | Yes               | Transform elements                 |
+| `reduce`  | No (single value) | Aggregate into one result          |
+
+---
+
+## Key Takeaways
+
+* Use `forEach` when you just want to loop
+* Use `filter` when you want to select elements
+* Use `map` when you want to transform elements
+* Use `reduce` when you want one final value
+* Method chaining makes code powerful and expressive
+* These methods are foundational for React and modern JS development
+
+```
+```
+
 
 
 
