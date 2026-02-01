@@ -2713,30 +2713,30 @@ Notice that:
 
 ---
 
-### Visualizing the DOM Tree (based on the diagram)
+### 🌳 Visualizing the DOM Tree
 
 Think of your HTML being converted into this structure:
 
-```
-Document
-  └── html
+```text
+Window
+└── Document
+    └── html
         ├── head
-        │     ├── title
-        │     │     └── "text node"
-        │     ├── meta (attribute)
-        │     └── meta (attribute)
+        │   ├── title
+        │   │   └── "text node"
+        │   ├── meta [attribute]
+        │   └── meta [attribute]
         │
         └── body
-              └── div
-                    ├── (attribute: class="bg-black")
-                    ├── h1 
-                    │     ├── attribute: class="bg-black"
-                    │     └── "DOM learning - Document Object Model" (text node)
-                    └── p
-                          └── "Lorem ipsum..." (text node)
+            └── div
+                ├── @class="bg-black"
+                ├── h1
+                │   ├── @class="bg-black"
+                │   └── "DOM learning - Document Object Model"
+                └── p
+                    └── "Lorem ipsum..."
 ```
 
----
 
 ### Important Understanding from the Diagram
 
