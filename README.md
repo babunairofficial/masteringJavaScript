@@ -2867,7 +2867,109 @@ You get an **HTMLCollection** of 2 elements (`div` and `h1`).
 * Convert collections to arrays to use array methods
 * Understanding this is mandatory before DOM manipulation
 
+---
 
+
+## Lesson 29-A: DOM Selectors (Selecting Elements from the DOM)
+
+Source File:  
+- `06_dom/one.html`  
+All experiments in this lesson are performed directly in the **browser console**.
+
+---
+
+### Why DOM Selectors Matter
+
+Before you can change anything on a web page using JavaScript, you must **select** the element from the DOM.
+
+> Step 1 of DOM manipulation is always: **Selection**
+
+---
+
+### Most Basic Selectors
+
+#### `document.getElementById()`
+
+document.getElementById("title");
+
+
+* Selects **one element**
+* Returns a single **element node**
+* Most commonly used and fastest selector
+
+You can store it:
+
+```javascript
+const title = document.getElementById("title");
+```
+
+Now you can inspect:
+
+```javascript
+title.id
+title.className
+title.innerHTML
+title.textContent
+```
+
+---
+
+#### `document.getElementsByClassName()`
+
+```javascript
+document.getElementsByClassName("heading");
+```
+
+* Returns an **HTMLCollection**
+* Even if only one element matches
+* **HTMLCollection is NOT an array**
+
+Access using index:
+
+```javascript
+const headings = document.getElementsByClassName("heading");
+headings[0];
+```
+
+Convert to array if needed:
+
+```javascript
+Array.from(headings);
+```
+
+---
+
+### Key Observations
+
+* `getElementById` → single element
+* `getElementsByClassName` → HTMLCollection
+* You must use index to access elements from collections
+* After selecting, you can read or modify:
+
+  * Text
+  * HTML
+  * Attributes
+  * Styles
+
+---
+
+### Practice in Console (Recommended)
+
+Open `one.html` in browser → Open Console → Try:
+
+```javascript
+const title = document.getElementById("title");
+title.innerText;
+title.textContent;
+title.innerHTML;
+
+title.style.color = "crimson";
+title.style.backgroundColor = "black";
+
+document.getElementsByClassName("heading")[0].style.color = "blue";
+```
+
+---
 
 
 
