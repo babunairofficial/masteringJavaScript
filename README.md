@@ -2939,6 +2939,63 @@ Array.from(headings);
 
 ---
 
+### What You Can Do After Selecting
+
+Once selected, you can:
+
+```javascript
+title.innerText
+title.textContent
+title.innerHTML
+title.style.color = "red";
+title.style.backgroundColor = "black";
+title.getAttribute("class");
+title.setAttribute("class", "newClass");
+```
+
+---
+
+### Difference Between `innerText`, `textContent`, and `innerHTML`
+
+| Property      | Meaning                          |
+| ------------- | -------------------------------- |
+| `innerText`   | Only visible text (respects CSS) |
+| `textContent` | All text inside element          |
+| `innerHTML`   | Text + HTML tags inside          |
+
+---
+
+### Understanding Attributes
+
+```javascript
+title.getAttribute("id");
+title.getAttribute("class");
+```
+
+Set or overwrite attributes:
+
+```javascript
+title.setAttribute("class", "test heading");
+```
+
+---
+
+### Styling Through JavaScript
+
+```javascript
+title.style.color = "green";
+title.style.padding = "20px";
+title.style.borderRadius = "10px";
+```
+
+Note: CSS properties use **camelCase** in JS.
+
+Example:
+
+* `background-color` → `backgroundColor`
+
+---
+
 ### Key Observations
 
 * `getElementById` → single element
@@ -2970,6 +3027,7 @@ document.getElementsByClassName("heading")[0].style.color = "blue";
 ```
 
 ---
+
 
 
 
