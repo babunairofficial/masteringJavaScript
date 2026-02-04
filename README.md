@@ -3029,6 +3029,170 @@ document.getElementsByClassName("heading")[0].style.color = "blue";
 ---
 
 
+## Lesson 29-B: `innerText` vs `textContent` vs `innerHTML` & `querySelector`
+
+Source File:  
+- `06_dom/one.html`  
+All experiments performed directly in the **browser console**.
+
+---
+
+## Part 1 — Difference Between `innerText`, `textContent`, and `innerHTML`
+
+After selecting an element:
+
+
+const title = document.getElementById("title");
+
+
+### 1️⃣ `title.innerText`
+
+```javascript
+title.innerText;
+```
+
+* Returns **only the visible text**
+* Respects CSS (`display: none`, `visibility: hidden` are ignored)
+* Slower because browser calculates styles
+
+---
+
+### 2️⃣ `title.textContent`
+
+```javascript
+title.textContent;
+```
+
+* Returns **all text** inside the element
+* Does **not** care about CSS visibility
+* Faster than `innerText`
+
+---
+
+### 3️⃣ `title.innerHTML`
+
+```javascript
+title.innerHTML;
+```
+
+* Returns **text + HTML tags** inside the element
+* Useful when you want to inject HTML dynamically
+
+---
+
+### Quick Comparison
+
+| Property      | Returns hidden text? | Returns HTML tags? | Use case       |
+| ------------- | -------------------- | ------------------ | -------------- |
+| `innerText`   | ❌ No                 | ❌ No               | What user sees |
+| `textContent` | ✅ Yes                | ❌ No               | Raw text data  |
+| `innerHTML`   | ✅ Yes                | ✅ Yes              | Modify HTML    |
+
+---
+
+## Part 2 — `querySelector` and `querySelectorAll`
+
+These are **modern and most powerful DOM selectors**.
+
+They use **CSS selectors**.
+
+---
+
+### `document.querySelector()`
+
+```javascript
+document.querySelector('h2');
+```
+
+* Returns **first matching element**
+* Accepts CSS selectors
+
+Examples:
+
+```javascript
+document.querySelector('input[type="password"]');
+document.querySelector('ul');
+```
+
+Store in variable:
+
+```javascript
+const myul = document.querySelector('ul');
+myul.querySelector('li');
+```
+
+This searches **inside** the selected element.
+
+---
+
+### `document.querySelectorAll()`
+
+```javascript
+document.querySelectorAll('h2');
+```
+
+* Returns a **NodeList**
+* NodeList is **array-like** and supports `forEach`
+
+Example:
+
+```javascript
+const tempLiList = document.querySelectorAll('li');
+tempLiList[0].style.color = 'green';
+```
+
+---
+
+### NodeList vs HTMLCollection
+
+| Feature             | NodeList (`querySelectorAll`) | HTMLCollection (`getElementsByClassName`) |
+| ------------------- | ----------------------------- | ----------------------------------------- |
+| Array-like          | ✅ Yes                         | ❌ No                                      |
+| `forEach` available | ✅ Yes                         | ❌ No                                      |
+| Live update         | ❌ No                          | ✅ Yes                                     |
+
+---
+
+### Why `querySelector` is Preferred
+
+You can select using:
+
+* Tag
+* Class
+* ID
+* Attribute
+* Nested structure
+
+Examples:
+
+```javascript
+document.querySelector('#title');
+document.querySelector('.heading');
+document.querySelector('input[type="password"]');
+document.querySelector('ul li');
+```
+
+---
+
+## Practice in Console
+
+```javascript
+const title = document.getElementById("title");
+
+title.innerText;
+title.textContent;
+title.innerHTML;
+
+document.querySelector('h2');
+document.querySelectorAll('h2');
+
+const myul = document.querySelector('ul');
+myul.querySelector('li');
+
+const tempLiList = document.querySelectorAll('li');
+tempLiList[0].style.color = 'green';
+```
+---
 
 
 ## License
