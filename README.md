@@ -3194,6 +3194,115 @@ tempLiList[0].style.color = 'green';
 ```
 ---
 
+## Lesson 29-C: Working with `HTMLCollection` and Converting to Array
+
+Source File:  
+- `06_dom/one.html`  
+All experiments performed directly in the **browser console**.
+
+This part focuses on a very important concept:
+
+> **`HTMLCollection` is NOT an array**
+
+---
+
+## Step 1 — Selecting Elements by Class Name
+
+```javascript
+const tempClassList = document.getElementsByClassName('list-item');
+````
+
+* Returns an **HTMLCollection**
+* Looks like an array
+* But **does not support** array methods like `forEach`, `map`, etc.
+
+Trying this will fail:
+
+```javascript
+tempClassList.forEach(function(li) {
+    console.log(li)
+});
+```
+
+---
+
+## Step 2 — Convert `HTMLCollection` into a Real Array
+
+To use array methods, convert it:
+
+```javascript
+const myConvertedArray = Array.from(tempClassList);
+```
+
+Now this works:
+
+```javascript
+myConvertedArray.forEach(function (li) {
+    li.style.color = 'orange';
+});
+```
+
+---
+
+## Why This Works
+
+| Type           | Supports `forEach` | Live update | Real Array |
+| -------------- | ------------------ | ----------- | ---------- |
+| HTMLCollection | ❌ No               | ✅ Yes       | ❌ No       |
+| NodeList       | ✅ Yes              | ❌ No        | ❌ No       |
+| Array          | ✅ Yes              | ❌ No        | ✅ Yes      |
+
+---
+
+## Practicing on a Real Website (Wikipedia)
+
+Open:
+`https://en.wikipedia.org/wiki/JavaScript`
+
+In the console:
+
+```javascript
+const allH2 = document.querySelectorAll('h2');
+
+allH2.forEach(function (h) {
+    h.style.color = 'black';
+    h.style.backgroundColor = 'green';
+    h.style.padding = '10px';
+    h.innerText = "Shaktimaan";
+});
+```
+
+### What this shows
+
+* `querySelectorAll` returns a **NodeList**
+* NodeList supports `forEach`
+* You can manipulate live webpage styles directly from console
+* Helps understand DOM manipulation deeply
+
+---
+
+## Practice Snippets
+
+```javascript
+const tempClassList = document.getElementsByClassName('list-item');
+
+const myConvertedArray = Array.from(tempClassList);
+myConvertedArray.forEach(function (li) {
+    li.style.color = 'orange';
+});
+
+
+const allH2 = document.querySelectorAll('h2');
+allH2.forEach(function (h) {
+    h.style.color = 'black';
+    h.style.backgroundColor = 'green';
+    h.style.padding = '10px';
+    h.innerText = "Shaktimaan";
+});
+```
+---
+
+
 
 ## License
 
