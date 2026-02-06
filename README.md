@@ -3302,6 +3302,178 @@ allH2.forEach(function (h) {
 ```
 ---
 
+## Lesson 30: Creating Elements and Understanding DOM Relationships
+
+Source Files:
+- `06_dom/two.html`
+- `06_dom/three.html`
+
+This lesson focuses on two powerful DOM concepts:
+
+1. Navigating **relationships** between elements (parent, children, siblings, nodes)
+2. **Creating new elements** dynamically using JavaScript
+
+---
+
+## Part 1 — Understanding DOM Relationships (`two.html`)
+
+### HTML Structure
+
+```html
+<div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+</div>
+````
+
+This structure forms a small DOM tree:
+
+```
+parent
+ ├── day (Monday)
+ ├── day (Tuesday)
+ ├── day (Wednesday)
+ └── day (Thursday)
+```
+
+### Accessing Parent and Children
+
+```javascript
+const parent = document.querySelector('.parent');
+
+console.log(parent);
+console.log(parent.children);
+console.log(parent.children[1].innerHTML);
+```
+
+* `children` returns an **HTMLCollection**
+* Access children using index
+* You can loop through them
+
+```javascript
+for (let i = 0; i < parent.children.length; i++) {
+    console.log(parent.children[i].innerHTML);
+}
+```
+
+### Styling a Specific Child
+
+```javascript
+parent.children[1].style.color = "orange";
+```
+
+---
+
+### First and Last Child
+
+```javascript
+console.log(parent.firstElementChild);
+console.log(parent.lastElementChild);
+```
+
+---
+
+### Moving Up and Sideways in DOM
+
+```javascript
+const dayOne = document.querySelector('.day');
+
+console.log(dayOne.parentElement);
+console.log(dayOne.nextElementSibling);
+```
+
+| Property             | Meaning                            |
+| -------------------- | ---------------------------------- |
+| `parentElement`      | Move one level up                  |
+| `nextElementSibling` | Move to next element on same level |
+
+---
+
+### Understanding `childNodes`
+
+```javascript
+console.log("NODES: ", parent.childNodes);
+```
+
+This shows:
+
+* Elements
+* Text nodes (spaces, line breaks)
+* Comments (if any)
+
+> `childNodes` ≠ `children`
+
+| children      | childNodes                 |
+| ------------- | -------------------------- |
+| Only elements | Elements + text + comments |
+
+---
+
+## Part 2 — Creating Elements Dynamically (`three.html`)
+
+This file starts with an empty body and builds content entirely using JavaScript.
+
+### Step 1 — Create Element
+
+```javascript
+const div = document.createElement('div');
+```
+
+### Step 2 — Add Properties
+
+```javascript
+div.className = "main";
+div.id = Math.round(Math.random() * 10 + 1);
+div.setAttribute("title", "generated title");
+```
+
+> `setAttribute` is preferred when adding attributes.
+
+### Step 3 — Styling
+
+```javascript
+div.style.backgroundColor = "green";
+div.style.padding = "12px";
+```
+
+### Step 4 — Add Text Node
+
+```javascript
+const addText = document.createTextNode("superheroes");
+div.appendChild(addText);
+```
+
+> Using `createTextNode` is more optimal than `innerText`.
+
+### Step 5 — Attach to Document
+
+```javascript
+document.body.appendChild(div);
+```
+
+Now the element becomes visible on the webpage.
+
+---
+
+## Key Learning Summary
+
+| Concept            | Method / Property                       |
+| ------------------ | --------------------------------------- |
+| Get children       | `element.children`                      |
+| Loop children      | `for loop`                              |
+| First / Last child | `firstElementChild`, `lastElementChild` |
+| Parent element     | `parentElement`                         |
+| Next sibling       | `nextElementSibling`                    |
+| All nodes          | `childNodes`                            |
+| Create element     | `document.createElement()`              |
+| Add attributes     | `setAttribute()`                        |
+| Add text           | `createTextNode()`                      |
+| Insert into DOM    | `appendChild()`                         |
+
+---
+
 
 
 ## License
