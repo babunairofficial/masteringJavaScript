@@ -3474,6 +3474,139 @@ Now the element becomes visible on the webpage.
 
 ---
 
+## Lesson 31: Editing and Removing Elements in the DOM
+
+Source File:
+- `06_dom/four.html`
+
+This lesson focuses on:
+
+- Adding new elements to the DOM
+- Editing existing elements
+- Replacing elements
+- Removing elements
+- Understanding selectors like `:nth-child()`, `:first-child`, and `:last-child`
+
+These selectors are inspired by jQuery but are **fully supported in modern JavaScript** through `querySelector`.
+
+References:
+- https://api.jquery.com/nth-child-selector/
+- https://api.jquery.com/first-child-selector/
+- https://api.jquery.com/last-child-selector/
+
+---
+
+### Initial HTML
+
+```html
+<ul class="language">
+    <li>JavaScript</li>
+</ul>
+````
+
+---
+
+## Adding Elements to the DOM
+
+### Method 1 — Using `innerHTML`
+
+```javascript
+function addLanguage(langName) {
+    const li = document.createElement('li');
+    li.innerHTML = `${langName}`;
+    document.querySelector('.language').appendChild(li);
+}
+addLanguage("Python");
+addLanguage("TypeScript");
+```
+
+This works, but it is **not optimal** because `innerHTML` parses HTML each time.
+
+---
+
+### Method 2 — Optimized Way (Recommended)
+
+```javascript
+function addOptiLanguage(langName){
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(langName));
+    document.querySelector('.language').appendChild(li)
+}
+addOptiLanguage('Golang');
+```
+
+Using `createTextNode` is more efficient and safer.
+
+---
+
+## Editing Elements Using Selectors
+
+### `nth-child()`
+
+```javascript
+const secondLang = document.querySelector("li:nth-child(2)");
+```
+
+Selects the **second** `<li>` inside the parent.
+
+```javascript
+const newli = document.createElement('li');
+newli.textContent = "Mojo";
+secondLang.replaceWith(newli);
+```
+
+`replaceWith()` replaces the entire element.
+
+---
+
+### `first-child`
+
+```javascript
+const firstLang = document.querySelector("li:first-child");
+firstLang.outerHTML = '<li>C++</li>'
+```
+
+`outerHTML` replaces the whole element including its tag.
+
+---
+
+## Removing Elements
+
+### `last-child`
+
+```javascript
+const lastLang = document.querySelector("li:last-child");
+lastLang.remove();
+```
+
+Removes the last `<li>` from the DOM.
+
+---
+
+## Understanding These Selectors
+
+| Selector          | Meaning                        |
+| ----------------- | ------------------------------ |
+| `li:nth-child(2)` | Select 2nd child inside parent |
+| `li:first-child`  | Select first child             |
+| `li:last-child`   | Select last child              |
+
+These are **CSS selectors**, usable directly in `querySelector`.
+
+---
+
+## Key DOM Methods Learned
+
+| Operation    | Method Used                    |
+| ------------ | ------------------------------ |
+| Add element  | `createElement`, `appendChild` |
+| Add text     | `createTextNode`               |
+| Edit element | `textContent`, `innerHTML`     |
+| Replace      | `replaceWith`, `outerHTML`     |
+| Remove       | `remove()`                     |
+
+---
+
 
 
 ## License
