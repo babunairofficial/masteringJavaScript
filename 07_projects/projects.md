@@ -70,3 +70,76 @@ JavaScript listens for click events on these elements and uses the id to set the
 6. Change the background color of the page using that id
 
 ---
+
+---
+
+## Project 2: BMI Calculator
+
+**Project Folder:**  
+[`07_projects/2-BMICalculator`](./2-BMICalculator)
+
+**Files:**
+- [`index.html`](./2-BMICalculator/index.html)
+- [`style.css`](./2-BMICalculator/style.css)
+- [`script.js`](./2-BMICalculator/script.js)
+
+---
+
+### Project Objective
+
+Build a **BMI (Body Mass Index) Calculator** that takes user input for height and weight, validates the inputs, and calculates BMI dynamically using JavaScript.
+
+This project focuses heavily on:
+
+- Handling **form submission**
+- Preventing default browser behavior
+- Validating user input
+- Performing calculations
+- Displaying dynamic results in the DOM
+
+---
+
+### Key Concepts Practiced
+
+| Concept                     | Implementation                                      |
+|----------------------------|------------------------------------------------------|
+| Form selection             | `document.querySelector('form')`                    |
+| Submit event handling      | `addEventListener('submit', ...)`                   |
+| Prevent page reload        | `e.preventDefault()`                                |
+| Reading input values       | `.value` from input fields                          |
+| Type conversion            | `parseInt()`                                        |
+| Input validation           | `isNaN()`, value checks                             |
+| DOM manipulation           | Updating `innerHTML` of results                     |
+| Mathematical calculation   | BMI formula using height and weight                 |
+
+---
+
+### How It Works
+
+The user enters:
+
+- Height in centimeters
+- Weight in kilograms
+
+On clicking **Calculate**, JavaScript:
+
+1. Stops the form from reloading the page.
+2. Reads and converts the input values into numbers.
+3. Validates whether inputs are correct.
+4. Calculates BMI using the formula:
+
+```BMI = weight / ((height * height) / 10000)```
+
+5. Displays the result dynamically inside the page.
+
+---
+
+### Validation Logic
+
+The script ensures:
+
+- Height and weight are numbers
+- Values are positive
+- Users are prompted when invalid input is provided
+
+---
