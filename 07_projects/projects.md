@@ -143,3 +143,45 @@ The script ensures:
 - Users are prompted when invalid input is provided
 
 ---
+
+### Update: Showing BMI Category Along With Result
+
+The `script.js` file has been enhanced to **classify the BMI result into categories** instead of showing only the numeric value.
+
+After calculating BMI, the code now determines which range the result falls into and displays the **corresponding category**.
+
+#### New Logic Added
+
+```js
+let category = "";
+
+if (bmi < 18.6) {
+    category = "Underweight";
+} else if (bmi < 24.9) {
+    category = "Normal Range";
+} else {
+    category = "Overweight";
+}
+```
+
+#### Updated Result Display
+
+Instead of displaying only the BMI value:
+
+```js
+results.innerHTML = `<span>${bmi}</span>`;
+```
+
+It now shows both:
+
+```js
+results.innerHTML = `<span>${bmi}</span><div>${category}</div>`;
+```
+
+#### What This Improves
+
+* Users now understand **what their BMI means**, not just the number.
+* The output is more informative and aligned with the **BMI Weight Guide** already present in the UI.
+* Demonstrates how conditional logic (`if...else`) can be used to derive meaningful insights from calculated data.
+
+---
