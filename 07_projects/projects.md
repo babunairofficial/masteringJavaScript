@@ -185,3 +185,59 @@ results.innerHTML = `<span>${bmi}</span><div>${category}</div>`;
 * Demonstrates how conditional logic (`if...else`) can be used to derive meaningful insights from calculated data.
 
 ---
+
+## Project 3: Digital Clock
+
+**Project Folder:**  
+[`07_projects/3-DigitalClock`](./3-DigitalClock)
+
+**Files:**
+- [`index.html`](./3-DigitalClock/index.html)
+- [`script.js`](./3-DigitalClock/script.js)
+
+---
+
+### Project Objective
+
+Build a **Digital Clock** that displays the **current local time** and updates every second automatically.
+
+This project introduces you to **time-based events**, **JavaScript Date object**, and **repeated execution using `setInterval`**.
+
+---
+
+### Key Concepts Practiced
+
+| Concept                    | Implementation                                  |
+|---------------------------|--------------------------------------------------|
+| DOM selection             | `getElementById('clock')`                      |
+| Date & Time in JS        | `new Date()`                                   |
+| Formatting time           | `toLocaleTimeString()`                         |
+| Repeated execution        | `setInterval()`                                |
+| Dynamic DOM update       | Updating `innerHTML` every second               |
+
+---
+
+### How It Works
+
+1. The element with id **clock** is selected from the DOM.
+2. `setInterval()` runs a function **every 1000 milliseconds (1 second)**.
+3. Inside the function:
+   - A new `Date` object is created.
+   - The current time is extracted using `toLocaleTimeString()`.
+   - The time is injected into the DOM using `innerHTML`.
+
+---
+
+### Core Learning
+
+This small project teaches a very powerful idea:
+
+> JavaScript can **run code continuously over time** without user interaction.
+
+You learn how to:
+- Work with real-time data
+- Use timers in JavaScript
+- Update UI automatically
+- Connect JavaScript logic with the DOM in a live scenario
+
+---
