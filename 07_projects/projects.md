@@ -241,3 +241,239 @@ You learn how to:
 - Connect JavaScript logic with the DOM in a live scenario
 
 ---
+
+
+## Project 4 — Guess The Number
+
+**Project Folder:**  
+`07_projects/4-GuessTheNumber`
+
+**Files:**
+- `index.html` → `07_projects/4-GuessTheNumber/index.html`
+- `style.css` → `07_projects/4-GuessTheNumber/style.css`
+- `script.js` → `07_projects/4-GuessTheNumber/script.js`
+
+---
+
+## Project Goal
+
+Create a fully interactive browser game where:
+
+- The computer generates a **random number between 1 and 100**
+- The user gets **exactly 10 attempts**
+- After each guess, the app tells the user:
+  - Too high
+  - Too low
+  - Correct
+- After the game ends, the user can **start a new game without refreshing the page**
+
+This project simulates how **real applications manage state, UI updates, and user input** using plain JavaScript.
+
+---
+
+## Files Overview
+
+| File        | Responsibility |
+|------------|------------------|
+| `index.html` | Structure of the game UI |
+| `style.css`  | Visual styling of the game |
+| `script.js`  | Complete game logic and DOM interaction |
+
+---
+
+## UI Structure (HTML Understanding)
+
+The HTML provides:
+
+- An input box to enter guesses
+- A submit button
+- Sections to display:
+  - Previous guesses
+  - Remaining guesses
+  - Result messages (low/high/correct)
+- A wrapper that later holds the **Start New Game** button dynamically
+
+You are not just using HTML — you are **controlling it from JavaScript**.
+
+---
+
+## Styling (CSS Understanding)
+
+CSS is used to:
+
+- Center the game
+- Style the buttons and input
+- Create a dark theme game layout
+- Highlight result areas
+
+This shows how JavaScript and CSS work together when DOM updates happen.
+
+---
+
+##  Deep Dive into `script.js`
+
+This file is the heart of the project.
+
+### Random Number Generation
+
+```js
+let randomNumber = (parseInt(Math.random() * 100 + 1));
+````
+
+* Generates a number between 1–100
+* Stored globally so all functions can access it
+
+---
+
+### Selecting Important DOM Elements
+
+```js
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+```
+
+You learn how to **store references** to parts of the page you will control.
+
+---
+
+### Game State Variables
+
+```js
+let prevGuess = [];
+let numGuess = 1;
+let playGame = true;
+```
+
+These variables are **the state of your application**.
+
+They track:
+
+* All previous guesses
+* Number of attempts
+* Whether the game is active
+
+> This is exactly how frameworks like React manage state internally.
+
+---
+
+### Handling User Input (Event Listener)
+
+```js
+submit.addEventListener('click', function(e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    validateGuess(guess);
+});
+```
+
+Concepts learned:
+
+* Form handling
+* Prevent page refresh
+* Extracting user input
+* Passing data to logic functions
+
+---
+
+### Validating the Guess
+
+```js
+function validateGuess(guess) {
+    if(isNaN(guess)) { ... }
+    else if (guess < 1) { ... }
+    else if (guess > 100) { ... }
+```
+
+You ensure:
+
+* Input is a number
+* Input is within range
+
+This is **input validation**, a critical real-world skill.
+
+---
+
+### Comparing Guess with Random Number
+
+```js
+function checkGuess(guess) {
+    if(guess === randomNumber) { ... }
+    else if (guess < randomNumber) { ... }
+    else { ... }
+}
+```
+
+Pure game logic separated into its own function.
+
+---
+
+### Updating the UI Dynamically
+
+```js
+function displayGuess(guess) {
+    guessSlot.innerHTML += `${guess}  `;
+    remaining.innerHTML = `${11 - numGuess}`;
+}
+```
+
+You update:
+
+* Previous guesses
+* Remaining attempts
+
+Without touching HTML manually.
+
+---
+
+### Ending the Game
+
+```js
+function endGame() {
+    userInput.setAttribute('disabled', '');
+    p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
+    startOver.appendChild(p);
+}
+```
+
+Here you learn:
+
+* Creating elements dynamically
+* Disabling inputs
+* Injecting new UI components
+
+---
+
+### Restarting the Game (State Reset)
+
+```js
+function newGame() {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+}
+```
+
+This is **state reset**, a concept used everywhere in web apps.
+
+---
+
+## Concepts Mastered in This Project
+
+| Concept                     | Where It’s Used                                  |
+|----------------------------|---------------------------------------------------|
+| Random number generation   | `Math.random()`                                   |
+| DOM selection              | `querySelector()`                                 |
+| Event handling             | `addEventListener('click')`                       |
+| Form handling              | `preventDefault()`                                |
+| Input validation           | `isNaN()`, range checks                           |
+| Arrays & state tracking    | `prevGuess[]`, `numGuess`                         |
+| Conditional logic          | `if/else` for game rules                          |
+| Dynamic DOM updates        | Showing guesses, messages, remaining attempts     |
+| Enabling/Disabling input   | `setAttribute('disabled')`                        |
+| Creating elements          | `createElement('p')`                              |
+
+---
