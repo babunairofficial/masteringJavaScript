@@ -20,6 +20,22 @@
     </div>
 </body>
 <script>
+    // document.getElementById('mountain').onclick = funtion(){
+    //     alert("mountain clicked")
+    // }
+
+    document.getElementById('mountain').addEventListener('click', function(){
+        alert("mountain clicked again");
+    }, false)
+
+    // attachEvent()
+    // jQuery - on
+
+    document.getElementById('mountain').addEventListener('click', function(e){
+        console.log(e);
+    }, false);
+
+    // type, timestamp, defaultPrevented
     
 </script>
 </html>
