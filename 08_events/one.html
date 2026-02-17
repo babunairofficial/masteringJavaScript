@@ -8,7 +8,7 @@
 <body style="background-color: #414141;">
     <h2>Amazing images</h2>
     <div>
-        <ul>
+        <ul id="images">
             <li><img width="200px" id="mountain" src="https://images.pexels.com/photos/35917021/pexels-photo-35917021.jpeg"></li>
             <li><img width="200px" id="snow" src="https://images.pexels.com/photos/35922197/pexels-photo-35922197.jpeg" alt="snow"></li>
             <li><img width="200px" id="cupcakes" src="https://images.pexels.com/photos/7454369/pexels-photo-7454369.jpeg" alt="cupcakes"></li>
@@ -31,11 +31,24 @@
     // attachEvent()
     // jQuery - on
 
-    document.getElementById('mountain').addEventListener('click', function(e){
-        console.log(e);
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientx, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
     }, false);
 
-    // type, timestamp, defaultPrevented
-    
+        document.getElementById('mountain').addEventListener('click', function(e){
+        console.log("owl clicked");
+        e.stopPropagation();
+    }, false);
+
+        document.getElementById('google').addEventListener('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("google clicked");    
+    }, false);
 </script>
 </html>
