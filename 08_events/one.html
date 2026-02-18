@@ -24,9 +24,9 @@
     //     alert("mountain clicked")
     // }
 
-    document.getElementById('mountain').addEventListener('click', function(){
-        alert("mountain clicked again");
-    }, false)
+    // document.getElementById('mountain').addEventListener('click', function(){
+    //     alert("mountain clicked again");
+    // }, false)
 
     // attachEvent()
     // jQuery - on
@@ -36,19 +36,38 @@
     // clientx, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
-    document.getElementById('images').addEventListener('click', function(e){
-        console.log("clicked inside the ul");
-    }, false);
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false);
 
-        document.getElementById('mountain').addEventListener('click', function(e){
-        console.log("owl clicked");
-        e.stopPropagation();
-    }, false);
+    //     document.getElementById('mountain').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation();
+    // }, false);
 
         document.getElementById('google').addEventListener('click', function(e){
             e.preventDefault();
             e.stopPropagation();
             console.log("google clicked");    
     }, false);
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        
+        if (e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+        
+            //one way
+            // removeIt.remove();
+
+            //second way
+            removeIt.parentNode.removeChild(removeIt);
+        }
+        
+        
+        
+    }, false)
+
 </script>
 </html>

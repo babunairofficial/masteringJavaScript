@@ -3607,6 +3607,276 @@ These are **CSS selectors**, usable directly in `querySelector`.
 
 ---
 
+# Lesson 32 — Events in JavaScript
+
+Source File:
+- `08_events/one.html`
+
+---
+
+## Objective of This Lesson
+
+This lesson introduces one of the most important concepts in JavaScript:
+
+> **Events**
+
+Events allow JavaScript to respond to user interactions like:
+
+* Clicks
+* Key presses
+* Mouse movements
+* Form submissions
+* And much more
+
+In this lesson, you learn:
+
+* How to attach event listeners
+* Event propagation (bubbling)
+* `preventDefault()`
+* `stopPropagation()`
+* Event object properties
+* Event delegation
+* Dynamically removing elements from the DOM
+
+---
+
+# HTML Structure Overview
+
+The page contains:
+
+* A heading: **“Amazing images”**
+* A `<ul>` with id `images`
+* Several `<img>` elements inside `<li>`
+* A Google link at the bottom
+
+Structure:
+
+```html
+<ul id="images">
+   <li><img id="mountain"></li>
+   <li><img id="snow"></li>
+   ...
+   <li><a id="google">Google</a></li>
+</ul>
+```
+
+This structure is important for understanding **event bubbling and delegation**.
+
+---
+
+# Understanding Events in This Lesson
+
+---
+
+## Old vs Modern Event Handling
+
+### Old Way (Not Recommended)
+
+```js
+document.getElementById('mountain').onclick = function(){
+    alert("mountain clicked")
+}
+```
+
+Problems:
+
+* Only one handler allowed
+* Less flexible
+* Harder to manage
+
+---
+
+### Modern Way (Recommended)
+
+```js
+document.getElementById('mountain')
+  .addEventListener('click', function(){
+      alert("mountain clicked again");
+  }, false);
+```
+
+Why better?
+
+* Multiple listeners allowed
+* More control
+* Supports capturing & bubbling
+
+---
+
+# Event Propagation (Very Important)
+
+Events in the DOM follow a flow:
+
+### Bubbling (Default Behavior)
+
+Event moves:
+
+```
+Child → Parent → Grandparent → Document
+```
+
+In this file:
+
+* Clicking an image triggers:
+
+  * Image handler
+  * Then UL handler (if not stopped)
+
+---
+
+## stopPropagation()
+
+```js
+e.stopPropagation();
+```
+
+Stops the event from moving upward in the DOM.
+
+Used when you **don’t want parent handlers to execute**.
+
+---
+
+# preventDefault()
+
+Used here:
+
+```js
+document.getElementById('google').addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("google clicked");    
+}, false);
+```
+
+What it does:
+
+* Prevents the link from navigating to Google
+* Stops bubbling
+* Logs message instead
+
+Very useful for:
+
+* Forms
+* Links
+* Custom UI behavior
+
+---
+
+# The Event Object (`e`)
+
+Every event listener gets an event object.
+
+Common properties:
+
+| Property                 | Meaning                         |
+| ------------------------ | ------------------------------- |
+| `e.type`                 | Type of event                   |
+| `e.timeStamp`            | Time event occurred             |
+| `e.target`               | Element that triggered event    |
+| `e.currentTarget`        | Element listener is attached to |
+| `e.clientX`, `e.clientY` | Mouse position                  |
+| `e.altKey`, `e.ctrlKey`  | Keyboard modifier keys          |
+
+In this lesson we use:
+
+```js
+console.log(e.target.tagName);
+```
+
+This tells us which element was clicked.
+
+---
+
+# Event Delegation (Very Important Concept)
+
+Instead of attaching click listeners to every image individually:
+
+```js
+document.querySelector('#images')
+  .addEventListener('click', function(e) {
+```
+
+We attach **one listener to the parent `<ul>`**.
+
+Then detect which child was clicked:
+
+```js
+if (e.target.tagName === 'IMG') {
+```
+
+This is called:
+
+> **Event Delegation**
+
+Why it’s powerful:
+
+* Better performance
+* Works for dynamically added elements
+* Cleaner code
+* Scales well in large apps
+
+Frameworks like React use similar principles internally.
+
+---
+
+# Removing Elements Dynamically
+
+When an image is clicked:
+
+```js
+let removeIt = e.target.parentNode;
+removeIt.parentNode.removeChild(removeIt);
+```
+
+Steps:
+
+1. Find the image's parent `<li>`
+2. Remove that `<li>` from the `<ul>`
+
+So clicking an image removes it from the page.
+
+Alternative modern method (commented in code):
+
+```js
+removeIt.remove();
+```
+
+---
+
+# What This Lesson Teaches You
+
+This lesson is foundational.
+
+You learn:
+
+* Modern event handling
+* Bubbling vs propagation
+* How to stop events
+* How to prevent default browser behavior
+* How event objects work
+* Event delegation
+* DOM node removal
+
+---
+
+# Why This Is Extremely Important
+
+Almost everything interactive on the web works using events:
+
+* Buttons
+* Forms
+* Games
+* Dropdown menus
+* Modal popups
+* Drag and drop
+* Infinite scroll
+
+Understanding this lesson means:
+
+> You now understand how user interaction works at the DOM level.
+
+---
+
 
 
 ## License
