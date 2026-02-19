@@ -3877,6 +3877,190 @@ Understanding this lesson means:
 
 ---
 
+# Lesson 33 — Async in JavaScript
+
+ **Type:** Theoretical Concept
+
+
+This lesson is fully based on the handwritten notes and diagram.
+
+---
+
+## Default JavaScript Behaviour
+
+From the notes:
+
+* JavaScript is **Synchronous**
+* JavaScript is **Single Threaded**
+
+This means:
+
+* It executes **one line of code at a time**
+* Each execution **waits for the last one to complete before executing**
+
+---
+
+## Execution Context
+
+JavaScript runs inside an **Execution Context**.
+
+It executes:
+
+```
+console.log → 1
+console.log → 2
+```
+
+One after another.
+
+Execution happens using:
+
+* **Call Stack**
+* **Memory Heap**
+
+---
+
+### ➤ Call Stack
+
+* Executes functions
+* Executes one thing at a time
+* Global execution is pushed first
+* Then functions are pushed and popped
+
+---
+
+### ➤ Memory Heap
+
+* Used for memory allocation
+* Stores data
+
+---
+
+## Blocking Code vs Non-Blocking Code
+
+### Blocking Code
+
+* Blocks the flow of program
+* Stops execution until task is finished
+
+Example from notes:
+
+```
+Read File Sync
+```
+
+---
+
+### Non-Blocking Code
+
+* Does not block execution
+
+Example from notes:
+
+```
+Read File Async
+```
+
+---
+
+## JS Engine Structure
+
+Inside JS Engine:
+
+```
+Memory Heap
+Call Stack
+```
+
+The Call Stack shows:
+
+```
+fn
+fn
+fn
+Global
+```
+
+Execution happens from Global → Functions.
+
+---
+
+## Web APIs
+
+Outside JS Engine (Browser provided):
+
+* DOM API
+* setTimeout
+* setInterval
+* fetch()
+
+When async code runs:
+
+1. It moves to Web API
+2. Registers a callback
+
+---
+
+## Register Callback
+
+From the notes:
+
+* Web APIs register callbacks
+* After completion, callbacks move to queues
+
+---
+
+## Queues
+
+The diagram shows two queues:
+
+### Microtask Queue (High Priority)
+
+Marked as:
+
+```
+High Priority
+```
+
+Contains callbacks like promises.
+
+---
+
+### Task Queue
+
+Contains normal callbacks.
+
+Labeled as:
+
+```
+task queue
+CB   CB
+```
+
+---
+
+## Event Loop
+
+At the bottom of the diagram:
+
+```
+Event Loop
+```
+
+The Event Loop:
+
+* Checks if Call Stack is empty
+* Moves callbacks from queues to Call Stack
+* Microtask queue has higher priority than Task Queue
+
+Flow:
+
+1. Call Stack empty?
+2. Take from Microtask Queue first
+3. Then take from Task Queue
+4. Add to Call Stack
+
+---
 
 
 ## License
