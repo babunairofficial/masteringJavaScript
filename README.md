@@ -4062,6 +4062,233 @@ Flow:
 
 ---
 
+Here is your detailed **README.md** content for the first Async JS project.
+
+You can place this inside your project folder documentation.
+
+---
+
+## Lesson 33 — Project — Understanding `setTimeout()` & `clearTimeout()`
+
+
+ **Source File:**  
+[`08_events/two.html`](./08_events/two.html)
+
+---
+**Concept:** Controlling asynchronous execution using timers
+
+---
+
+### Project Objective
+
+In this project, we learn:
+
+* How `setTimeout()` works
+* How to store a timeout reference
+* How to stop a scheduled task using `clearTimeout()`
+* How async behavior interacts with DOM events
+
+This is part 1 of the Async JS project series.
+
+---
+
+### HTML Structure (`two.html`)
+
+```html
+<h1>Projects with Async JS</h1>
+<button id="stop">Stop</button>
+```
+
+#### Elements:
+
+* `<h1>` → Text that will be modified after 2 seconds
+* `<button>` → Used to stop the scheduled timeout
+
+---
+
+### Full JavaScript Code (With Explanation)
+
+```javascript
+const sayJavaScript = function(){
+    console.log("JavaScript");
+}
+```
+
+#### Function 1: `sayJavaScript`
+
+* Logs `"JavaScript"` to the console
+* Will run after 2 seconds
+* Does NOT modify DOM
+
+---
+
+```javascript
+const changeText = function () {
+    document.querySelector('h1').innerHTML = "best JS series";
+}
+```
+
+#### Function 2: `changeText`
+
+* Selects the `<h1>` element
+* Changes its text to `"best JS series"`
+* This is a DOM manipulation example
+
+---
+
+### Using `setTimeout()`
+
+```javascript
+setTimeout(sayJavaScript, 2000);
+```
+
+#### What happens?
+
+* After **2000 milliseconds (2 seconds)**
+* `sayJavaScript()` runs
+* `"JavaScript"` is printed in console
+
+---
+
+```javascript
+const changeMe = setTimeout(changeText, 2000);
+```
+
+#### Important Concept:
+
+* `setTimeout()` returns a **timeout ID**
+* That ID is stored inside `changeMe`
+* This allows us to cancel it later
+
+After 2 seconds:
+
+* The `<h1>` text changes to `"best JS series"`
+
+---
+
+### Using `clearTimeout()`
+
+```javascript
+// clearTimeout(changeMe);
+```
+
+If this line runs:
+
+* It cancels the scheduled `changeText`
+* The `<h1>` text will NOT change
+
+---
+
+### Stopping Timeout Using a Button
+
+```javascript
+document.querySelector('#stop').addEventListener('click', function () {
+    clearTimeout(changeMe);
+    console.log("STOPPED");
+})
+```
+
+#### What Happens Here?
+
+1. We select the `#stop` button
+2. Add a `click` event listener
+3. When clicked:
+
+   * `clearTimeout(changeMe)` stops the scheduled function
+   * `"STOPPED"` is logged to console
+
+---
+
+### Execution Flow (Step by Step)
+
+#### When page loads:
+
+1. `sayJavaScript` is scheduled for 2 seconds
+2. `changeText` is scheduled for 2 seconds
+3. JavaScript continues executing (non-blocking)
+
+---
+
+#### Case 1: If user does NOTHING
+
+After 2 seconds:
+
+* Console → `"JavaScript"`
+* `<h1>` becomes → `"best JS series"`
+
+---
+
+#### Case 2: If user clicks "Stop" before 2 seconds
+
+* `clearTimeout(changeMe)` runs
+* `<h1>` does NOT change
+* Console prints → `"STOPPED"`
+
+---
+
+### Key Learning Points
+
+#### 1. `setTimeout()` is Asynchronous
+
+It does NOT block execution.
+
+It registers a callback in Web APIs and moves it to Task Queue after delay.
+
+---
+
+#### 2. `setTimeout()` Returns an ID
+
+```javascript
+const id = setTimeout(...)
+```
+
+That ID is required to cancel it.
+
+---
+
+#### 3. `clearTimeout()` Cancels Scheduled Execution
+
+```javascript
+clearTimeout(id);
+```
+
+Only works if called **before timeout finishes**.
+
+---
+
+#### 4. Real-Life Use Cases
+
+* Canceling notifications
+* Debouncing input
+* Canceling delayed UI updates
+* Stopping automatic redirects
+
+---
+
+### Async Flow in This Project
+
+```
+setTimeout()
+      ↓
+Web API Timer
+      ↓ (after 2s)
+Task Queue
+      ↓
+Event Loop
+      ↓
+Call Stack
+      ↓
+Function Executes
+```
+
+If `clearTimeout()` runs before execution:
+
+```
+Timer Cancelled
+Function Never Reaches Call Stack
+```
+---
+
 
 ## License
 
