@@ -4290,6 +4290,342 @@ Function Never Reaches Call Stack
 ---
 
 
+## Lesson 33 - Project 2 — Understanding `setInterval()` & `clearInterval()`
+
+
+
+ **Source File:**  
+[`08_events/three.html`](./08_events/three.html)
+
+---
+
+### Objective
+
+In this continuation of Lesson 33, we learn:
+
+* How `setInterval()` repeatedly executes a function
+* How to store an interval ID
+* How to prevent multiple intervals from running
+* How to stop repeating execution using `clearInterval()`
+* How async timers interact with DOM events
+
+This builds directly on the previous `setTimeout()` project.
+
+---
+
+### HTML Structure (`three.html`)
+
+```html
+<h1>Projects with Async JS</h1>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+```
+
+#### Elements Used:
+
+* `<h1>` → Static heading
+* `#start` → Starts the interval
+* `#stop` → Stops the interval
+
+---
+
+### Full JavaScript Code (With Deep Explanation)
+
+---
+
+#### 1. Function to Run Repeatedly
+
+```javascript
+const sayDate = function(str) {
+    console.log(str, Date.now());        
+}
+```
+
+#### What this does:
+
+* Takes a parameter `str`
+* Logs:
+
+  * The string passed
+  * Current timestamp using `Date.now()`
+
+Example output:
+
+```
+hi 1708362739201
+hi 1708362740201
+hi 1708362741201
+```
+
+Each log appears every second.
+
+---
+
+#### 2. Understanding `setInterval()`
+
+Basic syntax:
+
+```javascript
+setInterval(function, delay, parameter);
+```
+
+Example (commented in code):
+
+```javascript
+// setInterval(sayDate, 1000, "hello");
+```
+
+This would:
+
+* Run `sayDate("hello")`
+* Every 1000ms (1 second)
+* Repeatedly
+* Forever (until stopped)
+
+---
+
+#### 3. Storing Interval ID
+
+```javascript
+let intervalId = null;
+```
+
+Why?
+
+* `setInterval()` returns an **interval ID**
+* That ID is required to stop it
+* We initialize it as `null` to track state
+
+---
+
+### Start Button Logic
+
+```javascript
+document.querySelector('#start').addEventListener('click', function () {
+    if (!intervalId) {
+        intervalId = setInterval(sayDate, 1000, "hi");
+        console.log("STARTED"); 
+    } 
+});
+```
+
+#### Important Concept: Preventing Multiple Intervals
+
+If user clicks "Start" multiple times:
+
+Without condition:
+
+* Multiple intervals would run simultaneously
+* Logs would multiply uncontrollably
+
+With condition:
+
+```javascript
+if (!intervalId)
+```
+
+This ensures:
+
+* Only ONE interval runs at a time
+* Interval starts only if none is active
+
+---
+
+#### Flow When "Start" is Clicked:
+
+1. Check if `intervalId` is null
+2. If yes:
+
+   * Create interval
+   * Store ID in `intervalId`
+   * Log `"STARTED"`
+
+---
+
+### Stop Button Logic
+
+```javascript
+document.querySelector('#stop').addEventListener('click', function(){
+    if(intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+        console.log("STOPPED");
+    }        
+});
+```
+
+#### What happens:
+
+1. Check if interval exists
+2. If yes:
+
+   * `clearInterval(intervalId)` stops repetition
+   * Reset `intervalId = null`
+   * Log `"STOPPED"`
+
+---
+
+### Difference: `setTimeout()` vs `setInterval()`
+
+| Feature          | setTimeout | setInterval      |
+| ---------------- | ---------- | ---------------- |
+| Runs once?       | ✅ Yes      | ❌ No             |
+| Runs repeatedly? | ❌          | ✅                |
+| Needs clear?     | Optional   | Usually Required |
+| Returns ID?      | ✅          | ✅                |
+
+---
+
+### Execution Flow (Async Behavior)
+
+When `setInterval()` is called:
+
+```
+setInterval()
+      ↓
+Web API Timer
+      ↓ (every 1s)
+Task Queue
+      ↓
+Event Loop
+      ↓
+Call Stack
+      ↓
+sayDate() executes
+```
+
+This cycle repeats until:
+
+```
+clearInterval(intervalId)
+```
+
+After that:
+
+* Timer stops
+* Callback is no longer queued
+
+---
+
+### Why We Reset `intervalId = null`
+
+This is important for state control.
+
+If we don't reset it:
+
+* `if (!intervalId)` condition would fail
+* You would not be able to restart interval properly
+
+Resetting ensures:
+
+```
+Stopped → intervalId = null → Can Start Again
+```
+
+---
+
+### What Happens in Different Scenarios
+
+#### Case 1: Click Start Once
+
+* Logs "STARTED"
+* Prints `"hi <timestamp>"` every second
+
+---
+
+#### Case 2: Click Start Multiple Times
+
+Nothing happens after first click (due to condition).
+
+---
+
+#### Case 3: Click Stop
+
+* Interval stops
+* Logs "STOPPED"
+
+---
+
+#### Case 4: Click Stop Without Starting
+
+Nothing happens (safe because of condition).
+
+---
+
+### Key Learning Points
+
+#### 1. `setInterval()` is Asynchronous
+
+It does NOT block execution.
+
+It registers callback in Web APIs and repeatedly pushes it into Task Queue.
+
+---
+
+#### 2. Always Store Interval ID
+
+```javascript
+const id = setInterval(...)
+```
+
+Without storing:
+
+* You cannot stop it.
+
+---
+
+#### 3. Prevent Multiple Intervals
+
+Always guard with:
+
+```javascript
+if (!intervalId)
+```
+
+Otherwise:
+
+* Memory leaks
+* Multiple executions
+* Performance issues
+
+---
+
+#### 4. Real World Use Cases
+
+* Clocks
+* Countdown timers
+* Auto-refresh dashboards
+* Polling APIs
+* Animations
+
+---
+
+### Visual Async Model (For This Project)
+
+```
+START Click
+     ↓
+setInterval()
+     ↓
+Web API Timer
+     ↓ (every 1 sec)
+Task Queue
+     ↓
+Event Loop
+     ↓
+Call Stack
+     ↓
+sayDate("hi")
+
+STOP Click
+     ↓
+clearInterval()
+     ↓
+Timer Removed 
+No More Callbacks
+```
+---
+
 ## License
 
 This repository is open for learning and educational purposes.  
