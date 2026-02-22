@@ -477,3 +477,296 @@ This is **state reset**, a concept used everywhere in web apps.
 | Creating elements          | `createElement('p')`                              |
 
 ---
+
+
+## Project 06 — Unlimited Colors
+
+[`07_projects/06-unlimitedColors/index.html`](../07_projects/06-unlimitedColors/index.html)
+
+[`07_projects/06-unlimitedColors/script.js`](../07_projects/06-unlimitedColors/script.js)
+
+---
+
+### Project Objective
+
+This project builds on previous Async JavaScript lessons.
+
+You will learn:
+
+* How to generate random HEX colors
+* How to dynamically modify DOM styles
+* How to start and stop repeated asynchronous tasks
+* How to prevent multiple intervals from running simultaneously
+* How to structure logic into reusable functions
+
+---
+
+### `index.html` Breakdown
+
+```html
+<h1>Start should change the Background color every second</h1>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+```
+
+### UI Elements:
+
+* `#start` → Starts color changing
+* `#stop` → Stops color changing
+* `<body>` → Background color changes dynamically
+
+---
+
+### `script.js` Deep Dive
+
+---
+
+### Step 1 — Generating a Random HEX Color
+
+```javascript
+const randomColor = function () {
+    const hex = "0123456789ABCDEF";
+    let color = '#';
+
+    for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+```
+
+### How It Works
+
+### HEX Color Format:
+
+```
+#RRGGBB
+```
+
+Each position:
+
+* Can contain 0–9 or A–F
+* Total 16 possible values
+
+---
+
+### Logic Breakdown:
+
+1. Store possible hex characters
+2. Start color with `#`
+3. Run loop 6 times
+4. Each time:
+
+   * Generate random number between 0–15
+   * Pick character from hex string
+5. Return full color string
+
+---
+
+### Example Output:
+
+```
+#A3F91C
+#09FFAA
+#7D12B4
+```
+
+Every call produces a new color.
+
+---
+
+### Step 2 — Managing Interval State
+
+```javascript
+let intervalId = null;
+```
+
+Why?
+
+* `setInterval()` returns an ID
+* That ID is required to stop the interval
+* Initializing with `null` helps us:
+
+  * Track whether interval is running
+  * Prevent duplicate intervals
+
+---
+
+### Step 3 — Starting Color Change
+
+```javascript
+const startChangingColor = function () {
+    if(!intervalId) {
+        intervalId = setInterval(changeBgColor,1000);
+
+        function changeBgColor() {
+            document.body.style.backgroundColor = randomColor();
+        }
+    }
+}
+```
+
+---
+
+### Important Concepts
+
+#### Guard Condition
+
+```javascript
+if (!intervalId)
+```
+
+Prevents:
+
+* Multiple intervals running simultaneously
+* Memory leaks
+* Faster unintended color changes
+
+---
+
+#### `setInterval()` Usage
+
+```javascript
+intervalId = setInterval(changeBgColor,1000);
+```
+
+Meaning:
+
+* Execute `changeBgColor`
+* Every 1000ms (1 second)
+* Repeatedly
+* Until cleared
+
+---
+
+#### DOM Manipulation
+
+```javascript
+document.body.style.backgroundColor = randomColor();
+```
+
+This dynamically updates:
+
+* Entire page background
+* Every second
+* With new random color
+
+---
+
+### Step 4 — Stopping Color Change
+
+```javascript
+const stopChangingColor = function () {
+    if(intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+}
+```
+
+#### What Happens:
+
+1. Check if interval exists
+2. Call `clearInterval(intervalId)`
+3. Reset intervalId to `null`
+
+Resetting ensures:
+
+* You can restart again safely
+
+---
+
+### Step 5 — Adding Event Listeners
+
+```javascript
+document.querySelector('#start').addEventListener('click', startChangingColor)
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
+```
+
+#### Flow:
+
+* Click "Start" → interval begins
+* Click "Stop" → interval stops
+
+---
+
+### Execution Flow (Async Understanding)
+
+When Start is clicked:
+
+```
+Click Event
+    ↓
+startChangingColor()
+    ↓
+setInterval()
+    ↓
+Web API Timer
+    ↓ (every 1 second)
+Task Queue
+    ↓
+Event Loop
+    ↓
+Call Stack
+    ↓
+changeBgColor()
+    ↓
+DOM Updated
+```
+
+When Stop is clicked:
+
+```
+Click Event
+    ↓
+stopChangingColor()
+    ↓
+clearInterval()
+    ↓
+Timer Removed
+No More Repetition
+```
+
+---
+
+### Key Learning Points
+
+#### 1. Controlled Async Loops
+
+Never directly call:
+
+```javascript
+setInterval(...)
+```
+
+Without storing ID.
+
+---
+
+#### 2. Always Guard Against Multiple Intervals
+
+This is critical:
+
+```javascript
+if (!intervalId)
+```
+
+Without this:
+
+* Each click creates a new interval
+* Colors would change rapidly
+* Hard to stop properly
+
+---
+
+#### 3. Real-World Application
+
+This pattern is used in:
+
+* Animated backgrounds
+* Slideshows
+* Auto-refresh dashboards
+* Polling systems
+* Live UI effects
+
+---
