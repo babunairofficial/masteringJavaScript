@@ -478,6 +478,168 @@ This is **state reset**, a concept used everywhere in web apps.
 
 ---
 
+## Project 05 — Keyboard Event Inspector
+
+[`07_projects/5-keyboard/index.html`](../07_projects/5-keyboard/index.html)
+
+[`07_projects/5-keyboard/script.js`](../07_projects/5-keyboard/script.js)
+
+---
+
+### Objective
+
+This project captures keyboard input using the `keydown` event and dynamically displays information about the pressed key on the screen.
+
+It helps you understand:
+
+* How keyboard events work in JavaScript
+* What the event object contains
+* Difference between `key`, `keyCode`, and `code`
+* How to dynamically inject HTML using template literals
+
+---
+
+### index.html Structure
+
+The main display area:
+
+```html
+<div id="insert">
+  <div class="key">Press the key and watch magic</div>
+</div>
+```
+
+Important parts:
+
+* `#insert` → Container where dynamic content will be inserted
+* Initial message → Replaced once a key is pressed
+* Layout uses a centered flex container
+
+---
+
+### script.js Breakdown
+
+```javascript
+const insert = document.getElementById('insert');
+```
+
+We first select the container where we will inject dynamic content.
+
+---
+
+#### Listening to Keyboard Events
+
+```javascript
+window.addEventListener('keydown', (e) => {
+```
+
+Key points:
+
+* Event type: `keydown`
+* Attached to `window` so it captures key presses globally
+* The event object `e` contains detailed information about the pressed key
+
+---
+
+### The Event Object
+
+Inside the event listener:
+
+```javascript
+e.key
+e.keyCode
+e.code
+```
+
+#### 1. e.key
+
+Represents the actual value of the key pressed.
+
+Examples:
+
+* Press `a` → `"a"`
+* Press `Enter` → `"Enter"`
+* Press `Shift` → `"Shift"`
+
+Special handling in your code:
+
+```javascript
+${e.key === ' ' ? 'Space' : e.key}
+```
+
+If the user presses space, it shows `"Space"` instead of an empty blank character.
+
+---
+
+#### 2. e.keyCode
+
+Represents a numeric key code (legacy property).
+
+Example:
+
+* `a` → 65
+* `Enter` → 13
+
+Note:
+`keyCode` is deprecated but still useful for learning and understanding older codebases.
+
+---
+
+#### 3. e.code
+
+Represents the physical key on the keyboard.
+
+Example:
+
+* Press left `Shift` → `"ShiftLeft"`
+* Press right `Shift` → `"ShiftRight"`
+
+This is hardware-position based, not character based.
+
+---
+
+### Dynamic HTML Injection
+
+```javascript
+insert.innerHTML = `
+  <div class='color'>
+    <table>
+      <tr>
+        <th>Key</th>
+        <th>Keycode</th> 
+        <th>Code</th>
+      </tr>
+      <tr>
+        <td>${e.key === ' ' ? 'Space' : e.key}</td>
+        <td>${e.keyCode}</td> 
+        <td>${e.code}</td>
+      </tr>
+    </table>
+  </div>
+`;
+```
+
+Concepts used:
+
+* Template literals (backticks)
+* Embedded expressions `${}`
+* Overwriting entire inner HTML
+* Structured table rendering
+
+Each key press replaces the previous table content.
+
+---
+
+### Execution Flow
+
+1. User presses a key
+2. `keydown` event fires
+3. Event object is passed to callback
+4. HTML template is generated using event data
+5. `innerHTML` replaces previous content
+6. Updated key details appear on screen
+
+---
 
 ## Project 06 — Unlimited Colors
 
