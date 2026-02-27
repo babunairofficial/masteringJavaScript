@@ -4626,6 +4626,146 @@ No More Callbacks
 ```
 ---
 
+## Lesson 34 – API Request using XMLHttpRequest
+
+This lesson marks the beginning of advanced JavaScript concepts.
+
+---
+
+ **Source File:**  
+[`09_advance_one/ApiRequest.html`](./09_advance_one/ApiRequest.html)
+
+---
+
+### Objective
+
+* Understand how API calls work in JavaScript
+* Learn how `XMLHttpRequest` operates internally
+* Understand `readyState` values
+* Parse JSON responses
+* Extract specific data from an API response
+
+---
+
+### The API Used
+
+We are making a GET request to the GitHub Users API:
+
+`https://api.github.com/users/babunairofficial`
+
+This endpoint belongs to GitHub and returns public profile data of a GitHub user in JSON format.
+
+---
+
+### Code Breakdown
+
+#### 1. Creating the Request
+
+```js
+const xhr = new XMLHttpRequest();
+```
+
+This creates a new instance of `XMLHttpRequest`, which allows the browser to make HTTP requests.
+
+---
+
+#### 2. Initializing the Request
+
+```js
+xhr.open('GET', requestURL);
+```
+
+* `'GET'` → HTTP method
+* `requestURL` → API endpoint
+
+At this point, the request is configured but not sent.
+
+---
+
+#### 3. Understanding `readyState`
+
+The `XMLHttpRequest` object goes through multiple states:
+
+| Value | State            | Description                                    |
+| ----- | ---------------- | ---------------------------------------------- |
+| 0     | UNSENT           | Client created. `open()` not called yet.       |
+| 1     | OPENED           | `open()` has been called.                      |
+| 2     | HEADERS_RECEIVED | `send()` called. Headers and status available. |
+| 3     | LOADING          | Downloading. Partial data available.           |
+| 4     | DONE             | Operation complete.                            |
+
+We monitor this using:
+
+```js
+xhr.onreadystatechange = function() {
+    console.log(xhr.readyState);
+}
+```
+
+This function runs every time the `readyState` changes.
+
+---
+
+#### 4. Handling the Response
+
+```js
+if(xhr.readyState === 4){
+    const data = JSON.parse(this.responseText);
+    console.log(typeof data);
+    console.log(data.followers);
+}
+```
+
+When `readyState === 4`:
+
+* The request is complete.
+* `responseText` contains the server response as a string.
+* `JSON.parse()` converts the JSON string into a JavaScript object.
+* We access `data.followers` from the response.
+
+---
+
+### Key Concepts Learned
+
+#### 1. API Communication
+
+JavaScript can communicate with remote servers asynchronously.
+
+#### 2. JSON Parsing
+
+Most APIs return data in JSON format. It must be converted into a JavaScript object before use.
+
+#### 3. Event-Driven Programming
+
+`onreadystatechange` is an event handler that runs whenever the request state changes.
+
+#### 4. Asynchronous Nature
+
+The request does not block the rest of the program. JavaScript continues executing while waiting for the response.
+
+---
+
+### Important Observations
+
+* `responseText` is always a string.
+* Always check `readyState === 4` before using response data.
+* Modern JavaScript now prefers `fetch()` over `XMLHttpRequest`, but understanding `XMLHttpRequest` is essential to understand how AJAX evolved.
+
+---
+
+### Mental Model
+
+Think of `XMLHttpRequest` like ordering food:
+
+1. Create order → `new XMLHttpRequest()`
+2. Tell restaurant what you want → `open()`
+3. Place order → `send()`
+4. Wait while kitchen processes → `readyState` changes
+5. Food delivered → `readyState === 4`
+6. Open package → `JSON.parse()`
+
+---
+
 ## License
 
 This repository is open for learning and educational purposes.  
